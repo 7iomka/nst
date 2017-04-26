@@ -1,0 +1,31 @@
+context:
+  id: assortiment
+  sectionClassList: assortiment
+  titleConfig:
+    title: Виды стекла и зеркал
+  assortiment:
+  - title: Стекло
+    link: '#glass-gallery'
+    image:
+      src: /assets/images/sections/assortiment/glass.png
+      link: 'javascript:;'
+      customClassList: assortiment__figure
+      customClassList__link: modal-link
+      attrs:
+        'data-modal-target': '#glass-gallery'
+        'data-modal-close-click-outside': "false"
+    description: "В нашей компании Вы можете выбрать более 20 видов стекла, различных цветов, толщин и свойств. Для любых Ваших идей и пожеланий."
+    buttonLabel: Показать виды стекла
+
+  - title: Зеркало
+    link: '#mirrors-gallery'
+    image:
+      src: /assets/images/sections/assortiment/mirror.png
+      link: 'javascript:;'
+      customClassList: assortiment__figure
+      customClassList__link: modal-link
+      attrs:
+        'data-modal-target': '#mirrors-gallery'
+        'data-modal-close-click-outside': "false"
+    description: "Ежедневно в ассортименте более 20 видов зеркал, способных воплотить в жизнь самые смелые дизайнерские решения"
+    buttonLabel: Показать виды зеркал

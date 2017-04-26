@@ -1,0 +1,6 @@
+context:
+  id: calculator
+  sectionClassList: calculator
+  titleConfig:
+    title: Онлайн-заказ
+  info: 'Для комплексных заказов обратитесь к менеджеру <a href="tel:+74959406659">+7 (495) 940 66 59</a>, <a href="mailto:info@gform.ru">info@gform.ru</a>'

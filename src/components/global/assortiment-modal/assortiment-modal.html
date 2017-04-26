@@ -1,0 +1,102 @@
+<div style="display: none;" class="assortiment-modal modal {% for mod in mods -%} modal--{{ mod }} {%- endfor %} {{ customClassList }}" id="{{ id }}">
+  <div class="modal__body assortiment-modal__body">
+    <!--START MIRRORS--->
+    <div class="assortiment-gallery">
+      <div class="assortiment-gallery__body">
+        <!--gallery-scene-->
+        <div class="assortiment-gallery__scene gallery-scene">
+          <!--async container for material image-->
+          <div class="gallery-scene__material smallHiddenInRight">
+            <img class="gallery-scene__material-image" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+          </div>
+          <!--gallery scene slider-->
+          <div class="gallery-scene__slider big-image-slider">
+            {% for slide in slides %}
+              <div class="gallery-scene__slide gallery-slide">
+                <img class="gallery-slide__image" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                data-src="{{ ('/assets/images/sections/assortiment/' + slidesPath + '/' + slide.image) | path }}" alt="">
+                <div class="gallery-slide__content hidden">
+                  <div class="gallery-slide__content-title">{{ slide.title }}</div>
+                  <div class="gallery-slide__content-desc">
+                    {% if slide.desc %}
+                      {{ slide.desc }}
+                    {% else %}
+                      {{ slide.title }}
+                    {% endif %}
+                  </div>
+                  <div class="calculator-data"
+                    data-name-id="{{ slide.data.name }}"
+                    data-material-id="{{ slide.data.material }}"
+                    data-depth="{{ slide.data.depth }}"
+                    {% if slide.data.depths -%}
+                      data-depths="{{ slide.data.depths | join(',') }}"
+                    {%- endif %}
+                    {% if slide.data.depthsImages -%}
+                    data-depths-images="
+                        {%- for image in slide.data.depthsImages -%}
+                        {{ ('/assets/images/sections/assortiment/' + slidesPath + '/' + image) | path }}
+                          {%- if not loop.last -%}
+                            {{','}}
+                          {%- endif -%}
+                        {%- endfor -%}
+                      "
+                      {%- endif %}
+                    >
+                  </div>
+                  <div class="types">
+                    {% for type in slide.data.types %}
+                      <div class="type">
+                        <div class="type__title">{{ type.name }}</div>
+                        {% if type.material %} <div class="type__material" data-img-src="{{ ('/assets/images/sections/assortiment/materials/' + type.material) | path }}"></div> {% endif %}
+                        <div class="type__image" data-img-src="{{ ('/assets/images/sections/assortiment/' + slidesPath + '/' + type.image) | path }}"></div>
+                      </div>
+                    {% endfor %}
+                  </div>
+
+
+                  {% if slide.material %}
+                    <img class="gallery-slide__content-material" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ ('/assets/images/sections/assortiment/materials/' + slide.material) | path }}">
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <!--/gallery scene slider -->
+        </div>
+        <!--/gallery-scene-->
+        <!--gallery-description async -->
+        <div class="assortiment-gallery__description gallery-content">
+          <h2 class="gallery-content__title"></h2>
+          <div class="gallery-content__body"></div>
+          <div class="gallery-content__actions">
+            <div class="gallery-content__block-container gallery-content__depths-container">
+              <h3 class="gallery-content__block-title">Варианты толщины:</h3>
+              <div class="gallery-content__block-content gallery-content__depths"></div>
+            </div>
+            <div class="gallery-content__block-container gallery-content__types-container">
+              <h3 class="gallery-content__block-title">Варианты цвета:</h3>
+              <div class="gallery-content__block-content gallery-content__types"></div>
+            </div>
+
+          </div>
+          {% render "@button--primary", {
+            label: 'Рассчитать онлайн',
+            customClassList: 'gallery-content__button'
+          }, true %}
+        </div>
+      </div>
+        <!-- thumbs navigation -->
+      <div class="assortiment-gallery__nav">
+        <div class="assortiment-gallery__thumbs small-image-slider">
+          {% for slide in slides %}
+          <div class="assortiment-gallery__thumb gallery-thumb">
+            <img class="assortiment-gallery__thumb-image gallery-thumb__image" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ '/assets/images/sections/assortiment/' + slidesPath + '/' + slide.image | path }}" alt="">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!--END MIRRORS--->
+
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="service{% for mod in mods %} service--{{ mod }}{% endfor %}" data-aos="fade"
+     data-aos-easing="ease-in-sine"
+     data-aos-delay="{{ delay }}">
+  {%- if icon or link -%}
+    <figure class="service__figure">
+      <a class="service__figure-link modal-link" data-modal-target="{{ link }}" href="javascript:;">
+        {%- if icon -%}
+          <img src="{{ icon | path }}" class="service__icon">
+        {%- endif -%}
+      </a>
+    </figure>
+  {%- endif -%}
+  {%- if label -%}
+  <a class="service__link{% for mod in linkMods %} service__link--{{ mod }}{% endfor %} modal-link" data-modal-target="{{ link }}" href="javascript:;">
+    <span class="service__label{% for mod in labelMods %} service__label--{{ mod }}{% endfor %}">{{ label }}</span>
+  </a>
+  {%- endif -%}
+</div>

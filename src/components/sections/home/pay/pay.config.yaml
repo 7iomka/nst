@@ -1,0 +1,6 @@
+context:
+  id: pay
+  sectionClassList: pay
+  titleConfig:
+    title: 'Оплата банковской картой <span style="color: white">онлайн</span>'
+    mods: [pay]

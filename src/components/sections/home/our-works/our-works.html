@@ -1,0 +1,29 @@
+{% extends "@section" %}
+{% block section %}
+  <div class="gallery">
+    <div class="container">
+      <ul class="gallery__filter">
+      {% asyncEach category in categories %}
+        {% set prefixedSlug = 'all' if(category.slug == 'all') else '.'+category.slug %}
+        <li class="filter gallery__control" data-filter="{{ prefixedSlug }}">
+          <div class="filter__name">
+              {% render "@button--primary", {label: category.name, mods: ['small'], customClassList: 'gallery__control-btn'} %}
+          </div>
+        </li>
+      {% endeach %}
+      </ul>
+    </div>
+    <div class="gallery__pager">
+      <div class="container">
+        <div class="pager-list gallery__pager-list">
+          <!-- Pagination buttons will be generated here -->
+        </div>
+        <!-- <button class="btn btn--yellow btn--show-more gallery__show-more btn--show-more--expanded">Показать все</button> -->
+      </div>
+    </div>
+    <div class="gallery__container compensate-for-scrollbar">
+
+    </div>
+
+  </div>
+{% endblock %}

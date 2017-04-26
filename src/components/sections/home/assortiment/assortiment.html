@@ -1,0 +1,32 @@
+{% extends "@section" %}
+{% block section %}
+  <div class="container">
+    <div class="row">
+    {% for type in assortiment %}
+      <div class="col-12 col-md-6">
+        <div class="assortiment__item" data-aos="fade-up" data-aos-duration="750"
+             data-aos-easing="ease-in-sine" data-aos-delay="1000">
+          <div class="assortiment__header js-tilt">
+              <div class="assortiment__backdrop"></div>
+              {% render "@img-responsive--with-link", type.image %}
+          </div>
+          <div class="assortiment__body">
+            <h3 class="assortiment__title">{{ type.title }}</h3>
+            <article class="assortiment__description">
+              {{ type.description }}
+            </article>
+            {% render "@button--dark", {
+              label: type.buttonLabel,
+              customClassList: 'assortiment__button modal-link',
+              attrs: {
+                'data-modal-target': type.link,
+                'data-modal-close-click-outside': 'false'
+              }
+            }, true %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}
