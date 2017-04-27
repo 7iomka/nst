@@ -2,7 +2,14 @@ context:
   id: services
   sectionClassList: services
   titleConfig:
-    title: Наши услуги
+    title: Услуги и преимущества
+  advantages:
+    - advantage: Грузоперевозки
+    - advantage: Хранение грузов
+    - advantage: Международные перевозки
+    - advantage: Внутрипортовое <br>экспедирование
+    - advantage: Оформление процедуры <br>таможенного транзита
+  sepTitle: Наша компания внесена в единый реестр таможенных перевозчиков
   services:
     - icon: /assets/images/icons/services/1.png
       link: "#service-1"

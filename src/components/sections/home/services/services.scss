@@ -4,6 +4,21 @@
   position: relative;
   overflow: hidden;
 
+  &__sep-title {
+    font-size: 2.2em;
+    padding: 1em 1.1em;
+    background-color: #f6c300;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin: 3.5em auto;
+    @include media(">=lg"){
+      margin: 3.5em -2em;
+    };
+
+  }
+
   &__container {
     margin: 7em 0 0;
     @include media(">=md") {

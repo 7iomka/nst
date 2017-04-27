@@ -1,6 +1,21 @@
 {% extends "@section" %}
 {% block section %}
+  <div class="advantages">
+    <div class="container">
+      <div class="row justify-content-center">
+        {% for item in advantages %}
+          <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+            {% render "@advantage", {
+              'mods': '' + loop.index,
+              'advantage': item.advantage
+            } %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
   <div class="container">
+      <h3 class="services__sep-title">{{ sepTitle }}</h3>
     <div class="row services__container">
       {% for service in services %}
       {% if loop.last %}
