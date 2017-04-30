@@ -1,10 +1,11 @@
 status: ready
 context:
   sections:
-  - section: services
-  - section: our-works
-  - section: assortiment
-  - section: offer
-  - section: calculator
-  - section: how
-  - section: pay
+  - section: about-video
+  # - section: services
+  # # - section: our-works
+  # # - section: assortiment
+  # # - section: offer
+  # # - section: calculator
+  # # - section: how
+  # # - section: pay

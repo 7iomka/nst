@@ -1,0 +1,93 @@
+
+.about-video {
+  $z-index__bg: 4;
+  $z-index__header: 5;
+  $z-index__relative-content: 5;
+
+  position: relative;
+  padding-top: 13.4em;
+  &__bg {
+     background: url('../images/sections/about-video/about-video__bg.png') 50% 0 no-repeat;
+     position: absolute;
+     top: -334px;
+     left: 0;
+     right: 0;
+     height: 1428px;
+     z-index: 4;
+     @include media("<lg") {
+      //  top: -168px;
+       top: -17vw;
+       /* hack to engage viewport-units-buggyfill */
+       content: 'viewport-units-buggyfill; top: -17vw;';
+       background-size: contain;
+     };
+  }
+
+  &__relative-content {
+    position: relative;
+    z-index: $z-index__relative-content;
+  }
+  .p-section__header {
+      position: relative;
+      z-index: $z-index__header;
+
+  }
+  .section-title {
+    color: white;
+  }
+
+  &__content-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin: 3em 0;
+      padding: 2em;
+  }
+
+  &__corner {
+    position: absolute;
+    background: url('../images/sections/about-video/about-video__corner.png') 0 0 no-repeat;
+    width: 268px;
+    height: 268px;
+    &--l-t {
+      left: 0;
+      top: 0
+    }
+    &--r-b {
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .ytp-large-play-button {
+    background-color: #cd201f;
+    background-image: none;
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+    @include media(">=lg"){
+      width: 16em;
+      height: 16em;
+    };
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 60%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: url('../images/YT_play_btn-white.png') 50% 50% no-repeat;
+        background-size: contain;
+    }
+  }
+
+
+
+}

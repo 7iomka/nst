@@ -57,7 +57,12 @@
 
 
 // Components
-@import '../../components/**/*.scss';
+@import '../../components/macros/**/*.scss';
+@import '../../components/common/**/*.scss';
+@import '../../components/global/**/*.scss';
+@import '../../components/partials/**/*.scss';
+@import '../../components/sections/**/*.scss';
+@import '../../components/templates/**/*.scss';
 
 // Themes
 @import 'themes/**/*.scss';

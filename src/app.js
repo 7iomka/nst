@@ -8,8 +8,15 @@
 
 // polifill for es6 vendors
 import "babel-polyfill";
+
+// boggyfill for viewport units (vw/vh/vmin/vmax)
+const viewportUnitsHacks = require('viewport-units-buggyfill.hacks');
+const viewportUnitsBuggyfill = require('viewport-units-buggyfill');
+
+
 // smooth-animate jquery plugin
 import "vendors/jquery.smooth-animate.js";
+
 // util for run some code after css transition end
 import "utils/jquery.after-transition.js";
 
@@ -27,6 +34,8 @@ import deferImages from "utils/defer-images.js";
 	import './components/common/button/button.js';
 	// init modal-links && fancybox set-up
 	import modalActions from './components/global/modal/modal.js';
+
+	import videoReview from './components/common/video-review/video-review.js';
 	// init scroll-links to target
 	import scrollLinks from './components/global/scroll-link/scroll-link.js';
 	// ajax && validation for all siteModals
@@ -50,8 +59,8 @@ import deferImages from "utils/defer-images.js";
 	// import './components/sections/gosts/gosts-list/gosts-list.js';
 	// import './components/sections/terms/terms-description/terms-description.js';
 
-	import headerVideo from './components/partials/site-header/header-video.js';
-	import headerMenu from './components/partials/site-header/header-menu.js';
+
+	// import headerMenu from './components/partials/site-header/header-menu.js';
 	import gallery from './components/sections/home/our-works/our-works.js';
 	import assortiment from './components/sections/home/assortiment/assortiment.js';
 	import assortimentModalActions from './components/global/assortiment-modal/assortiment-modal.js';
@@ -66,10 +75,15 @@ import deferImages from "utils/defer-images.js";
 
 // init actions
 domready(function () {
+	const vubInstance = viewportUnitsBuggyfill.init({
+		hacks: viewportUnitsHacks,
+		refreshDebounceWait: 250
+	});
   const publicApi = {
-		headerVideo: headerVideo.init(),
+		viewportUnitsBuggyfill: vubInstance,
 		deferImages: deferImages.init(),
-		headerMenu: headerMenu.init(),
+		// headerMenu: headerMenu.init(),
+		videoReview: videoReview.init(),
 		scrollLinks: scrollLinks.init(),
 		gallery: gallery.init(),
 		assortiment: assortiment.init(),
@@ -83,6 +97,11 @@ domready(function () {
   exports.publicApi =  {
     ...publicApi
   };
+
+	// advanced resize triger for viewportUnitsBuggyfill
+	$(window).on('resize orientationchange', function () {
+		viewportUnitsBuggyfill.refresh();
+	});
 })
 
   // var siteGalleryInit = siteGallery();

@@ -63,25 +63,25 @@
 /** by size **/
 // default style for buttons
 .c-button {
-  $button-fsz: 19px;
+  $button-fsz: 15px;
   font-size: em($button-fsz, $rem-baseline);
   @include em(( padding: 18px 28px, ), $button-fsz);
   border-radius: 28px;
 }
 
 // small buttons in filter navigation
-.c-button--small {
-  $button-fsz: 18px;
-  font-size: em($button-fsz, $rem-baseline);
-  @include em(( padding: 6px 15px, margin: 0 10px 11px ), $button-fsz);
-}
+// .c-button--small {
+//   $button-fsz: 18px;
+//   font-size: em($button-fsz, $rem-baseline);
+//   @include em(( padding: 6px 15px, margin: 0 10px 11px ), $button-fsz);
+// }
 
 // big
-.c-button--big {
-  // width: 372px;
-  // max-width: 100%;
-  font-size: 25px;
-}
+// .c-button--big {
+//   // width: 372px;
+//   // max-width: 100%;
+//   font-size: 25px;
+// }
 
 
 // FIXED SIZE

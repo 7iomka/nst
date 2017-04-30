@@ -95,6 +95,9 @@ let webpackConfig = {
         // Add extensions following the pattern below remember to import them as necessary in your .js files
         'inputmask.numeric.extensions': _path('node_modules/jquery.inputmask/dist/inputmask/inputmask.numeric.extensions'),
 
+        'viewport-units-buggyfill': _path('node_modules/viewport-units-buggyfill/viewport-units-buggyfill'),
+        'viewport-units-buggyfill.hacks': _path('node_modules/viewport-units-buggyfill/viewport-units-buggyfill.hacks'),
+
         // "module": "new-module",
         // // alias "module" -> "new-module" and "module/path/file" -> "new-module/path/file"
         //

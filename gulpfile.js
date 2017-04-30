@@ -265,7 +265,7 @@ function injectPreview() {
         rootpath: paths.dest,
     };
     return target.pipe(inlinesource(inlinesourceOptions))
-    .pipe(gulp.dest(paths.dest));
+          .pipe(gulp.dest(paths.dest));
 
 }
 
@@ -358,24 +358,19 @@ function watch(done) {
         return;
       }
     });
-  // gulp.watch(paths.src + '/**/*.js', webpack);
+
+
+  // мониторинг стилей
   gulp.watch([
-    paths.src + '/**/*.{scss}',
-    !paths.src + '/**/separate/**/*.{scss,css}'
-  ], styles).on('error', function(error) {
+    paths.src + '/**/*.{scss}'
+  ], gulp.series(styles,separateStyles)).on('error', function(error) {
+  // ], gulp.series(styles,separateStyles,injectPreview)).on('error', function(error) {
       // silently catch 'ENOENT' error typically caused by renaming watched folders
       if (error.code === 'ENOENT') {
         return;
       }
     });
-  gulp.watch([
-    paths.src + '/**/separate/**/*.{scss,css}'
-  ], gulp.series(separateStyles,injectPreview)).on('error', function(error) {
-      // silently catch 'ENOENT' error typically caused by renaming watched folders
-      if (error.code === 'ENOENT') {
-        return;
-      }
-    });
+    
   gulp.watch([
     paths.src + '/components/partials/_preview.html'
   ], gulp.series(injectPreview)).on('error', function(error) {

@@ -1,5 +1,11 @@
 <header class="header site-header">
-    <div class="header__video-fallback"><img id="header-video-snapshot" src="{{ '/assets/images/videos/video.jpg' | path }}"></div>
+    <div class="header__back">
+      <div class="header__back-bottom"></div>
+    </div>
+
+
+    <div class="header__car"></div>
+
 
     <div class="header__top">
        <div class="container">
@@ -7,10 +13,6 @@
            <div class="col-12 col-md-7">
              <div class="header__logo" data-aos="fade-down">
                {% render "@logo" %}
-               <div class="header__separator"></div>
-               <div class="header__adress">
-                 <div>г. Москва </div><div>Дмитровское шоссе, д.11</div>
-               </div>
              </div>
            </div>
 
@@ -18,102 +20,47 @@
              <div class="header__contacts" data-aos="fade-down">
                <ul class="header__phones">
                  <li>
-                   <a href="tel:74959406659" class="phone">+7 (495) 940-66-59</a>
+                   <a href="tel:74959406659" class="phone">+7 (812) 327-51-27</a>
                  </li>
                </ul>
-               <p class="header__small-text-line">Без выходных с 10 до 19</p>
              </div>
            </div>
          </div>
        </div>
     </div>
+  <!--  <div class="header__square-shadow header__square-shadow--mobile"></div>-->
     <div class="header__body">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-12 col-md-10 col-lg-9">
-            <h1 class="site-title">
-              <span class="site-title__line" data-aos="fade-down" data-aos-delay="100">Срочное </span>
-              <span class="site-title__line" data-aos="zoom-in" data-aos-delay="200">изготовление </span>
-              <span class="site-title__line" data-aos="zoom-in" data-aos-delay="300">изделий из </span>
-              <span class="site-title__line site-title__line--highlighted" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-out" data-aos-duration="750">стекла и зеркал</span>
-            </h1>
-            <div class="header__advantages">
-              <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-md-5">
-                  <div class="header__advantage" data-aos="fade-right" data-aos-delay="300">
-                    Cобственное производство в Москве
-                  </div>
-                </div>
-                <div class="col-12 col-md-auto text-center mt-3 mt-md-0">
-                  <a class="header__advantage header__advantage--outlined modal-link" data-modal-target="#working24" href="javascript:;" data-aos="fade-left" data-aos-delay="300">
-                    изготовим <br>за 24 часа
-                  </a>
-                </div>
-              </div>
-            </div>
+
+      <div class="header__square"></div>
+      <div class="header__square-shadow header__square-shadow--md"></div>
+
+      <div class="header__stripes">
+        <div class="header__stripes-item header__stripes-item--1"></div>
+        <div class="header__stripes-item header__stripes-item--2"></div>
+        <div class="header__stripes-item header__stripes-item--3"></div>
+      </div>
+
+      <div class="header__dots">
+        <div class="header__dots-inner"></div>
+      </div>
+      <div class="header__relative-content">
+        <div class="container">
+          <h1 class="site-title">
+            <span class="site-title__line" data-aos="fade-down" data-aos-delay="100">Перевозка </span>
+            <span class="site-title__line" data-aos="zoom-in" data-aos-delay="200">негабаритных </span>
+            <span class="site-title__line" data-aos="zoom-in" data-aos-delay="300">грузов </span>
+            <span class="site-title__line site-title__line--highlighted" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-out" data-aos-duration="750">по России и за рубежом</span>
+          </h1>
+          <div class="header__action" data-aos="fade-up" data-aos-delay="400">
+            {% render "@button--primary", {
+             label: 'Оставить заявку на перевозку',
+             customClassList: 'header__action-button modal-link',
+             attrs: {
+               'data-modal-target':'#action-offer'
+             }
+           }, true %}
           </div>
         </div>
       </div>
-    </div>
 
-    {% render "@bottom-panel", { }, true %}
-    {% render "@bottom-panel--fixed", { customClassList: 'compensate-for-scrollbar'}, true %}
-    <div class="header__bottom header__bottom--fixed compensate-for-scrollbar">
-      <div class="container">
-         <div class="row align-items-center justify-content-between justify-content-md-center">
-           <div class="col-auto col-sm-7 col-md-6">
-             <div class="header__logo">
-               {% render "@logo" %}
-               <div class="header__separator"></div>
-               <div class="header__adress">
-                 <div>г. Москва </div><div>Дмитровское шоссе, д.11</div>
-               </div>
-             </div>
-           </div>
-
-           <div class="col-auto col-sm-5 pl-0 col-md-6">
-             <div class="header__right-actions">
-               <div class="header__contacts">
-                 <ul class="header__phones">
-                   <li>
-                     <a href="tel:74959406659" class="phone">+7 (495) 940-66-59</a>
-                   </li>
-                 </ul>
-               </div>
-                 <!-- Button for expand mobile nav -->
-                 {% render "@navigation-toggler" %}
-                 <!-- /Button for expand mobile nav -->
-             </div>
-           </div>
-         </div>
-
-      </div>
-      <div class="header__navigation">
-        <div class="container">
-          <!-- Desktop naw -->
-          <nav class="nav">
-            <ul class="menu main-menu">
-              {% asyncEach page in menuPages %}
-                <li class="menu__item"><a href="{{ page.url }}" class="menu__link scroll-link"><span>{{ page.title }}</span></a></li>
-              {% endeach %}
-            </ul>
-          </nav>
-          <!-- /Desktop naw -->
-          <!-- Mobile naw -->
-          <nav class="nav-mobile">
-              <ul class="menu main-menu">
-              {% asyncEach mobileColumn in mobileColumns %}
-                <li class="menu__column">
-                  {% for page in mobileColumn.menuPages %}
-                    <div class="menu__item"><a href="{{ page.url }}" class="menu__link scroll-link"><span>{{ page.title }}</span></a></div>
-                  {% endfor %}
-                </li>
-              {% endeach %}
-            </ul>
-          </nav>
-          <!-- /Mobile naw -->
-        </div>
-      </div>
-
-    </div>
    </header>

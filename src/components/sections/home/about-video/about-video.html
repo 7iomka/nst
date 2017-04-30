@@ -1,0 +1,15 @@
+{% extends "@section" %}
+{% block section %}
+  <div class="about-video__bg"></div>
+  <div class="about-video__relative-content">
+    <div class="container">
+      <div class="about-video__content-wrapper">
+        <div class="about-video__corner about-video__corner--l-t"></div>
+        <div class="about-video__corner about-video__corner--r-b"></div>
+        <div class="about-video__content">
+          {% render "@video-review", videoConfig %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+context:
+  id: about-video
+  sectionClassList: about-video
+  titleConfig:
+    title: Посмотрите видео о компании
+  videoConfig:
+    video:
+      youtube: tfpW6w8J21I

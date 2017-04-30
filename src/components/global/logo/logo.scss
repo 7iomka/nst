@@ -4,51 +4,17 @@
     flex-grow: 1;
     flex: 1 0;
   };
-  @include media("<375px") {
-    // width: 100%;
-    // flex-basis: 100%;
-  };
-  &__icon {
-    display: inline-block;
-    width: 4.8em;
-    height: 5.1em;
-    vertical-align: middle;
-    background: image('icons/logo__icon.png') no-repeat;
-    background-size: cover;
-  }
 
   &__link {
-    display: flex;
-    color: white;
-    align-items: center;
-    @include media("<md") {
-      justify-content: flex-end;
+    display: block;
+  }
+
+  svg {
+    fill: none;
+    @include media("<md"){
+      display: block;
+      margin: auto;
+      height: 50px;
     };
-    @include media("<375px") {
-      justify-content: center;
-    };
   }
-
-  &__title {
-    font-size: 3em;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  &__title-wrapper {
-    overflow: hidden;
-    vertical-align: middle;
-    display: inline-block;
-    margin-left: 11px;
-  }
-
-  &__icon-wrapper {
-    overflow: hidden;
-    display: inline-block;
-    width: 4.8em;
-    height: 5.1em;
-    vertical-align: middle;
-  }
-
-
 }
