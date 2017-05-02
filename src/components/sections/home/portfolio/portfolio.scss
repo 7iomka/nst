@@ -1,0 +1,115 @@
+.portfolio {
+    position: relative;
+
+    &__header-part {
+      position: absolute;
+      height: 334px;
+      top: -334px;
+      left: 0;
+      right: 0;
+      background: url('../images/sections/portfolio/portfolio__header-part.png') 50% 100% no-repeat;
+      background-size: contain;
+    }
+
+    &__relative-content {
+      padding: 2em 0 8em;
+      background: url('../images/sections/portfolio/portfolio__body-part.jpg') 50% 0 repeat-y;
+    }
+
+    // companies list
+    &__companies {
+      // equal 20px margin
+      .row {
+          margin-right: -10px;
+          margin-left: -10px;
+          > div {
+             padding-right: 10px;
+             padding-left: 10px;
+         }
+      }
+      .p-section__main {
+         margin: 3.7em 0 7.5em;
+       }
+    }
+    &__company {
+      height: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      margin: 0 auto 20px;
+      padding: 0 2em;
+
+      @include media("<sm") {
+        max-width: 305px;
+      };
+    }
+
+    // examples list
+    &__examples {
+      // equal 10px margin
+      .row {
+          margin-right: -5px;
+          margin-left: -5px;
+          > div {
+             padding-right: 5px;
+             padding-left: 5px;
+         }
+      }
+      .p-section__main {
+         margin: 3.6em 0 7.5em;
+       }
+    }
+
+    &__example {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 10px;
+    }
+
+
+    &__dots {
+      @include media(">=1320px"){
+        position: absolute;
+        width: 306px;
+        height: 306px;
+        background: url('../images/sections/portfolio/portfolio__dots.png') 50% 0 no-repeat;
+        &--l-b {
+          bottom: -70px;
+          left: -108px;
+        }
+        &--r-t {
+          right: -133px;
+          top: -97px;
+        }
+      };
+    }
+
+    &__load-more-button {
+      border: 2px solid #000;
+     font-weight: bold;
+     color: #0b0b0b;
+     margin: 3.2em auto 0;
+     width: 23.3em;
+      &:hover {
+          background: rgba(255, 231, 138, 0.64);
+      }
+    }
+
+    &__bottom-part {
+      height: 24.4vw;
+      content: 'viewport-units-buggyfill; height: 24.4vw;';
+      background: url('../images/sections/portfolio/portfolio__bottom-part.png') 100% 100% no-repeat;
+      background-size: contain;
+      @include media("<lg") {
+        background-size: cover;
+        height: 30vw;
+        content: 'viewport-units-buggyfill; height: 30vw;';
+      };
+      @include media("<sm") {
+        height: 32vw;
+        content: 'viewport-units-buggyfill; height: 32vw;';
+      };
+    }
+}

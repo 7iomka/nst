@@ -1,0 +1,14 @@
+context:
+  id: about-digits
+  sectionClassList: about-digits
+  titleConfig:
+    title: О компании в цифрах
+  digitsContent:
+  - digits: 2007
+    description: Дата основания компании
+  - digits: 17 289
+    description: Перевозок осуществлено
+  - digits: 20
+    description: Тягачей в собственном <br>автопарке
+  - digits: 25
+    description: Полуприцепов в наличии

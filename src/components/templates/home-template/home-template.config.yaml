@@ -2,6 +2,8 @@ status: ready
 context:
   sections:
   - section: about-video
+  - section: about-digits
+  - section: portfolio
   # - section: services
   # # - section: our-works
   # # - section: assortiment

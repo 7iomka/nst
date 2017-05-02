@@ -1,0 +1,16 @@
+context:
+  id: portfolio
+  sectionClassList: portfolio
+  companies:
+    titleConfig:
+      title: Работаем с компаниями
+    items:
+    - src: /assets/images/sections/portfolio/companies/dhl.png
+    - src: /assets/images/sections/portfolio/companies/pnsk.png
+    - src: /assets/images/sections/portfolio/companies/panalpina.png
+    - src: /assets/images/sections/portfolio/companies/silvasti.png
+    - src: /assets/images/sections/portfolio/companies/instar.png
+    - src: /assets/images/sections/portfolio/companies/spaarmann.png
+  examples:
+    titleConfig:
+      title: Некоторые из наших перевозок

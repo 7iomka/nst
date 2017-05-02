@@ -8,12 +8,12 @@ function modalActions() {
     var $modalTarget = $(this).data('modal-target');
     var closeClickOutsideDataAttr = $(this).data('modal-close-click-outside');
     var closeClickOutside = typeof closeClickOutsideDataAttr !== 'undefined' ? closeClickOutsideDataAttr : true;
-    if(Modernizr.pointerevents && Modernizr.mq('(max-width: 960px)')) {
-      closeClickOutside = false;
-    }
-    if($modalLinkAutoOpen.length && $(this).is($modalLinkAutoOpen)) {
-      closeClickOutside = false;
-    }
+    // if(Modernizr.pointerevents && Modernizr.mq('(max-width: 960px)')) {
+    //   closeClickOutside = false;
+    // }
+    // if($modalLinkAutoOpen.length && $(this).is($modalLinkAutoOpen)) {
+    //   closeClickOutside = false;
+    // }
 
     $.fancybox.close();
     $.fancybox.open({

@@ -62,6 +62,11 @@ import deferImages from "utils/defer-images.js";
 
 	// import headerMenu from './components/partials/site-header/header-menu.js';
 	import gallery from './components/sections/home/our-works/our-works.js';
+
+	import aboutDigits from './components/sections/home/about-digits/about-digits.js';
+	import portfolioActions from './components/sections/home/portfolio/portfolio.js';
+
+
 	import assortiment from './components/sections/home/assortiment/assortiment.js';
 	import assortimentModalActions from './components/global/assortiment-modal/assortiment-modal.js';
 
@@ -84,14 +89,16 @@ domready(function () {
 		deferImages: deferImages.init(),
 		// headerMenu: headerMenu.init(),
 		videoReview: videoReview.init(),
-		scrollLinks: scrollLinks.init(),
-		gallery: gallery.init(),
-		assortiment: assortiment.init(),
-		mapActions: mapActions.init(),
+		// scrollLinks: scrollLinks.init(),
+		// gallery: gallery.init(),
+		// assortiment: assortiment.init(),
+		// mapActions: mapActions.init(),
 		modalActions: modalActions.init(),
 		siteModals: siteModals.init(),
-		assortimentModalActions: assortimentModalActions.init(),
-		offerActions: offerActions.init()
+		// assortimentModalActions: assortimentModalActions.init(),
+		// offerActions: offerActions.init(),
+		aboutDigits: aboutDigits.init(),
+		portfolioActions: portfolioActions.init(),
   }
 
   exports.publicApi =  {

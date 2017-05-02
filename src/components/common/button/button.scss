@@ -9,6 +9,7 @@
   vertical-align: middle;
   user-select: none;
   outline: none;
+  text-transform: uppercase;
   transition: 0.4s ease color, 0.4s ease background-color;
   @media print {
     display: none;
@@ -63,10 +64,17 @@
 /** by size **/
 // default style for buttons
 .c-button {
-  $button-fsz: 15px;
-  font-size: em($button-fsz, $rem-baseline);
-  @include em(( padding: 18px 28px, ), $button-fsz);
+  $button-fsz: 1.5em;
+  font-size: $button-fsz;
+  // font-size: em($button-fsz, $rem-baseline);
+  // @include em(( padding: 18px 28px, ), $button-fsz);
   border-radius: 28px;
+  padding: 1.8em;
+  line-height: 1;
+  border-radius: 4em; // 4 * 1em
+  @include media(">=414px"){
+    width: 23.3em;
+  };
 }
 
 // small buttons in filter navigation
@@ -119,6 +127,8 @@
     position: relative;
     overflow: hidden;
     transition: .5s ease all;
+    // fixed value (69px with 1.5em fsz)
+    min-height: em-rel(6.9, 1.5);
 
     // each value
     .c-button__value {
@@ -131,7 +141,10 @@
         transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1;
         margin: auto;
-        line-height: 55px;
+        line-height: 1;
+        // fixed values
+        width: 100%;
+        height: 1em;
 
         &--hidden {
             transform: translateY(100%);

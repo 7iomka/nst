@@ -1,0 +1,40 @@
+{% extends "@section" %}
+{% block section__custom %}
+  <div class="about-digits__stripes">
+    <div class="container">
+      <div class="about-digits__stripe about-digits__stripe--1"></div>
+      <div class="about-digits__stripe about-digits__stripe--2"></div>
+      <div class="about-digits__stripe about-digits__stripe--3"></div>
+      <div class="about-digits__stripe about-digits__stripe--4"></div>
+    </div>
+  </div>
+{% endblock %}
+{% block section %}
+  <div class="about-digits__relative-content">
+    <div class="container">
+      <div class="row text-center">
+        {% for item in digitsContent %}
+          <div class="col-12 col-sm-6">
+
+            <div class="about-digits__item">
+              <div class="about-digits__item-header">
+                <div class="about-digits__digits about-digits__digits--{{ loop.index }}">
+                  {{ item.digits }}
+                </div>
+                {% if loop.index == 1 %}
+                  <div class="about-digits__item-prefix">г.</div>
+                {% endif %}
+              </div>
+              <div class="about-digits__item-body">
+                <div class="about-digits__description">
+                  {{ item.description }}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
