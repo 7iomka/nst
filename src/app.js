@@ -67,7 +67,6 @@ import deferImages from "utils/defer-images.js";
 	import portfolioActions from './components/sections/home/portfolio/portfolio.js';
 
 
-	import assortiment from './components/sections/home/assortiment/assortiment.js';
 	import assortimentSliderActions from './components/global/assortiment-slider/assortiment-slider.js';
 
 	import offerActions from './components/sections/home/offer/offer.js';
@@ -91,7 +90,6 @@ domready(function () {
 		videoReview: videoReview.init(),
 		// scrollLinks: scrollLinks.init(),
 		// gallery: gallery.init(),
-		// assortiment: assortiment.init(),
 		// mapActions: mapActions.init(),
 		modalActions: modalActions.init(),
 		siteModals: siteModals.init(),

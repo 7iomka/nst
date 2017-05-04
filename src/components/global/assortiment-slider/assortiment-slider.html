@@ -1,4 +1,4 @@
-<div class="assortiment-slider {{ customClassList }}">
+<div class="assortiment-slider {{ customClassList }}" id="car-park">
     <div class="assortiment-slider__body">
       <!--gallery-scene-->
       <div class="assortiment-slider__scene gallery-scene">
@@ -7,26 +7,27 @@
           {% for slide in slides %}
             <div class="gallery-scene__slide gallery-slide">
               <div class="gallery-slide__image">
-                {% include ('/sections/assortiment/' + slide.num + '/' + slide.num + '.svg') %}
+                {# svg изображение схемы находится в папке c каждым номером и транспортируются галмпом в папку откуда инклудятся#}
+                {% include slide.num + '.svg' %}
               </div>
               <div class="gallery-slide__content hidden">
                 <div class="gallery-slide__content-schemes">
                   {#  slide.schemes: 2 - будет вставлено: 1 видимая фотка и 1 скрытая #}
                   {#  slide.schemes: если не указано - будет вставляться по умолчанию 1 #}
                   {#  класс gallery-content__scheme - именно такой потому как будет вставляться и перемещаться содержимое #}
-                  <div class="gallery-content__scheme">
+                  <figure class="gallery-content__scheme img-responsive img-responsive--with-link img-responsive--with-overlay ">
                     {% set schemeMainImage = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '-scheme.jpg' | path %}
-                    <a href="{{ schemeMainImage }}" data-fancybox="schemes-gallery">
+                    <a class="img-responsive__link" href="{{ schemeMainImage }}" data-for-fancybox="schemes-gallery-{{ slide.num }}">
                       <img src="{{ schemeMainImage }}" />
                     </a>
-                  </div>
+                  </figure>
                   {# если указан параметр schemes значит схем больше чем 1 и параметр указывает количество #}
                   {% if slide.schemes %}
                   <div style="display: none;">
                     {% for item in range(2, slide.schemes+1) %}
                       {# тут остальные фотки относящиеся к данной галлерее #}
-                        {% set schemeNextImage = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '-scheme' + loop.index + '.jpg' | path %}
-                      <a href="{{ schemeNextImage }}" data-fancybox="schemes-gallery"
+                        {% set schemeNextImage = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '-scheme' + (loop.index+1) + '.jpg' | path %}
+                      <a href="{{ schemeNextImage }}" data-for-fancybox="schemes-gallery-{{ slide.num }}"
                          data-thumb="{{ schemeNextImage }}"></a>
                     {% endfor %}
                   </div>
@@ -38,7 +39,7 @@
                     <li>Длина: {{ slide.desc.l }} (м)</li>
                     <li>Ширина: {{ slide.desc.w }} (м)</li>
                     <li>Высота: {{ slide.desc.h }} (м)</li>
-                    <li>Макс. вес: {{ slide.m }} (т)</li>
+                    <li>Макс. вес: {{ slide.desc.m }} (т)</li>
                   </ul>
                 </div>
               {# тут вставляем все необходимые скрытые дивы с дата атрибутами #}

@@ -9,13 +9,7 @@
     {% else %}
       <img src="{{ src | path }}" alt="{{ alt }}" class="img-responsive__item">
     {% endif %}
-    {% if overlay %}
-      <span class="img-responsive__overlay">
-        <span class="img-responsive__overlay-icon">
-          <img class="img-responsive__overlay-icon-img" src="{{ '/assets/images/icons/zoom-icon.png' | path }}">
-        </span>
-      </span>
-    {% endif %}
+  
   </a>
   {% else %}
     {% if external %}

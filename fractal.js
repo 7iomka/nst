@@ -90,7 +90,6 @@ const nunjucks = require('@frctl/nunjucks')({
     },
   },
   paths: [
-    paths.static + '/assets/images',
     paths.static + '/assets/vectors',
     paths.src + '/components/_macros',
   ]

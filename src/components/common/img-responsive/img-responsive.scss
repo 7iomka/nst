@@ -97,5 +97,41 @@
 .img-responsive--with-overlay {
   text-align: center;
   /** call default for all **/
-   @include imagemodal();
+  //  @include imagemodal();
+  // BEM
+  .img-responsive {
+    &__link {
+      position: relative;
+      z-index: 2;
+      display: block;
+      overflow: hidden;
+      &:before, &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 100%;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+      }
+      &:before {
+        background: url('../vectors/resize.svg') 50% 50% no-repeat;
+        background-size: 64px 64px;
+        transform: scale(0.7);
+        z-index: 2;
+      }
+      &:after {
+        z-index: 1;
+        background-color: rgba(82, 69, 69, 0.6);
+      }
+
+      &:hover:before,
+      &:hover:after {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
 }

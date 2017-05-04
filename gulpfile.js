@@ -28,7 +28,8 @@ const gulpIf = require('gulp-if');
 const gulplog = require('gulplog');
 const gutil = require('gulp-util');
 const merge = require('merge-stream');
-
+const flatten = require('gulp-flatten');
+const cache = require('gulp-cached');
 const inlinesource = require('gulp-inline-source');
 
 const webpackStream = require('webpack-stream');
@@ -179,8 +180,15 @@ function videos() {
 
 // Vectors
 function vectors() {
-  return gulp.src(paths.src + '/assets/vectors/**/*')
+  var mergeAssortimentFilesToVectorsFolder = gulp.src(paths.src + '/assets/images/sections/assortiment/**/*.svg')
+      .pipe(cache('vectors caching'))
+      .pipe(flatten())
+      .pipe(gulp.dest(paths.src + '/assets/vectors/'));
+
+  var mergeAllVectorsToDest = gulp.src(paths.src + '/assets/vectors/**/*')
     .pipe(gulp.dest(paths.dest + '/assets/vectors'));
+
+  return merge(mergeAssortimentFilesToVectorsFolder, mergeAllVectorsToDest);
 };
 
 // Linting
@@ -352,7 +360,11 @@ function watch(done) {
         return;
       }
     });
-  gulp.watch(paths.src + '/assets/vectors', vectors).on('error', function(error) {
+  gulp.watch(
+    [
+      paths.src + '/assets/vectors',
+      paths.src + '/assets/images/sections/assortiment/**/*.svg',
+    ], vectors.bind(this,'vectors')).on('error', function(error) {
       // silently catch 'ENOENT' error typically caused by renaming watched folders
       if (error.code === 'ENOENT') {
         return;
@@ -370,7 +382,7 @@ function watch(done) {
         return;
       }
     });
-    
+
   gulp.watch([
     paths.src + '/components/partials/_preview.html'
   ], gulp.series(injectPreview)).on('error', function(error) {

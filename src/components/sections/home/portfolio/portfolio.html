@@ -14,7 +14,7 @@
             {% for company in companies.items %}
               <div class="col-12 col-sm-6 col-md-4">
                 <div class="portfolio__company">
-                    {% render "@img-responsive", company %}
+                    {% render "@img-responsive", company, true %}
                 </div>
               </div>
             {% endfor %}
@@ -45,7 +45,7 @@
                        'attrs': {
                          'data-fancybox': 'gallery'
                        }
-                    } %}
+                    }, true %}
                 </div>
               </div>
             {% endfor %}

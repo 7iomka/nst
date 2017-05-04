@@ -1,52 +1,47 @@
-.assortiment-modal {
-    width: 100%;
-    max-width: 1200px;
-    .modal__body {
-      font-size: inherit;
-      padding: 0;
-    }
-    &.modal .fancybox-close-small {
-      top: 10px;
-      right: 5px;
-    }
-}
 
 .assortiment-slider {
+  margin: 6em 0;
   &__body {
       display: flex;
-      @include media("<820px") {
+      @include media("<md") {
         display: block;
       };
   }
 
   &__scene {
-    width: 72%;
+    width: 66%;
     position: relative;
     overflow: hidden;
-    @include media("<820px") {
+    background: white;
+    margin-right: 0.8em;
+    @include media("<md") {
       width: 100%;
+      margin-right: 0;
+      margin-bottom: 0.8em;
     };
   }
 
   &__description {
-    width: 28%;
-    @include media("<820px") {
+    width: 34%;
+    background: white;
+    @include media("<md") {
       width: 100%;
     };
   }
 
   &__nav {
-    background-color: #2d2737;
+
   }
 
 
   // thumbs area
   &__thumbs {
-    padding: 2em 50px;
+    padding: 1.4em 50px;
 
 
   }
   &__thumb {
+    position: relative;
     width: 100px;
     transition: .5s ease;
     float: left;
@@ -54,92 +49,76 @@
     height: 100%;
     border: 4px solid rgba(255,255,255,0);
     // margin-bottom: 5px;
-    margin-right: 5px;
+    margin-right: 7px;
     outline: 0;
     &.slick-current {
         border-color: $base-color--primary;
     }
+    &:before {
+        content: "";
+        position: relative;
+        height: 77px;
+        background: white;
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: auto;
+    }
   }
 
   &__thumb-image {
-    height: 100px;
-    transform: translateX(-50%);
-    transform: translate3d(-50%,0,0);
-    position: relative;
+    position: absolute;
+    top: 50%;
     left: 50%;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    transform: translate3d(-50%,-50%,0);
   }
 }
+
+// scene container
+.gallery-scene__slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1.2em;
+    .slick-list {
+        width: 100%;
+    }
+    .slick-list,.slick-track {
+        height: 100%;
+    }
+}
+
 // gallery-slide
 .gallery-slide {
   &__image {
       max-width: 100%;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      @include media("<md"){
+        max-width: 500px;
+        margin: 5em auto 0;
+      };
   }
+  svg {
+     width: 100%;
+     height: auto;
+     display: block;
+     margin: auto;
+ }
 }
 
 
 
 
-
-.gallery-scene__material {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-    @include media(">=820px", "<1024px") {
-      width: 95px;
-      height: 95px;
-    };
-    @include media("<641px") {
-      width: 75px;
-      height: 75px;
-    };
-    @include media("<481px") {
-      width: 60px;
-      height: 60px;
-    };
-  top: 58px;
-  right: 36px;
-  z-index: 999;
-  opacity: 1;
-  transform: translate(0);
-  transition: .8s ease;
-  pointer-events: none;
-  user-select: none;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 0 4px #fff;
-    transition: .5s ease;
-    opacity: 1;
-  }
-
-
-  &-image {
-      width: 100%;
-      opacity: 1;
-  }
-  // states
-  &.smallHiddenInRight {
-    transform: translate(150%, 0);
-    opacity: 0;
-  }
-
-  &.shortInvisible {
-    &:before {
-      opacity: 0.25;
-    }
-  }
-
-
-  &.shortInvisible &-image  {
-    opacity: 0;
-    transition: 0.8s ease;
-  }
-}
 
 
 // Gallery content
@@ -148,150 +127,56 @@
   padding: 2em 1.5em 2em 2em;
   overflow: hidden;
 
-  @include media("<820px") {
+  @include media("<md") {
     text-align: center;
   };
 
-  &__title,
-  &__body,
-  &__button {
+
+
+  &__schemes,
+  &__body {
     transition: 0.5s ease;
-    transform: translate(0);
     opacity: 1;
   }
-  &__actions {
-    transition: 0.5s ease;
-    &.short_hidden {
-      transform: translateY(15%);
-    }
-  }
 
-  &__title {
-      @extend .modal__title;
-      font-size: 3em;
-      // padding: em-rel(2, 3) 1.85em em-rel(2, 3) em-rel(2, 3);
-      padding-right: em-rel(5, 3);
-      font-weight: bold;
-      @include media("<820px") {
-        padding-right: 0;
-        font-size: 2.6em;
-      };
 
-      &:after {
-        max-width: 215px;
-      }
-  }
   &__body {
     font-size: 1.8em;
     line-height: 1.11;
     margin: em-rel(1.7, 1.8) 0;
+    color: #2c2c2c;
 
-    @include media("<820px") {
+    @include media("<md") {
       max-width: 100%;
       width: 100%;
       padding: 15px;
       text-align: center;
+      line-height: normal;
     };
   }
 
-  &__actions {
-    margin: 1.7em 0;
-
-    .input-wrapper {
-      margin: 0 0 10px 0;
+  // each scheme
+  &__scheme {
+    height: 200px;
+    overflow: hidden;
+    border: 1px solid #c5c5c4;
+    a {
+        display: block;
+        max-width: 100%;
+        height: 100%;
+        position: relative;
     }
-
-    // @include media(">=lg") {
-    //   input[type="radio"] + label {
-    //     width: 2em;
-    //     height: 2em;
-    //     vertical-align: middle;
-    //     vertical-align: -webkit-baseline-middle;
-    //
-    //     &:before {
-    //       top: 0;
-    //       left: 0;
-    //       width: 0.6em;
-    //       height: 0.6em;
-    //       bottom: 0;
-    //       margin: auto;
-    //       right: 0;
-    //     }
-    //   }
-    // };
-
-
+    img {
+        height: 100%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
   }
 
 
-// actions parts
-  &__block-title {
-    font-size: 1.8em;
-    font-weight: 500;
-    margin-bottom: 0.6em;
-  }
 
-  &__block-content {
-      font-size: 0.8em;
-
-
-        // mix actions parts
-       &.gallery-content__types {
-         @include media("<820px", ">=sm") {
-           display: flex;
-           flex-wrap: wrap;
-           margin-left: 4em;
-           padding: 0 4em;
-           margin-top: 20px;
-           align-items: center;
-           justify-content: center;
-
-         }
-         .input-wrapper {
-             @include media("<820px") {
-               width: 33%;
-               text-align: left;
-             };
-
-
-             @include media("<sm") {
-                width: auto;
-                margin: 10px;
-                display: inline-block;
-                min-width: 40%;
-             };
-         }
-
-
-       }
-
-
-  }
-
-  // styles for separate second block with types if it's present
-  &__block-container + &__block-container {
-      padding-top: 10px;
-      margin-top: 10px;
-      border-top: 1px solid #e8e8e8;
-  }
-
-  &__button {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.7em;
-    line-height: normal;
-    @include media("<820px") {
-      min-width: em-rel(27, 1.7);
-    };
-    @include media(">=820px", "<1080px") {
-      font-size: 1.7*0.85em;
-    };
-    @include media(">=820px") {
-      width: 100%;
-      max-width: 270px;
-      line-height: 1.45;
-    };
-  }
 }
 
 
@@ -302,24 +187,4 @@
 .short_hidden {
     transition: 0.4s ease;
     opacity: 0;
-    transform: translateY(-100%);
-}
-
-.short_hidden-up {
-    transition: 0.4s ease;
-    opacity: 0;
-    transform: translateY(-100%);
-}
-
-.short_shuffle {
-    transition: 0.4s ease;
-    transform: translate(0,10px);
-    opacity: 0;
-    box-shadow: 0 15px 50px rgba(45, 39, 55, 0.37);
-}
-
-@for $nth_short from 1 through 5 {
-  .short_hidden:nth-child(#{$nth_short}) {
-    transition-delay: (0.1*$nth_short)s;
-  }
 }

@@ -1,7 +1,11 @@
 .assortiment {
       padding: 6.5em 0;
       overflow: hidden;
+      background: url('../images/sections/assortiment/assortiment__bg.jpg') 50% 0 no-repeat;
 
+  .section-title {
+    color: white;
+  }
   &__item {
     margin: 4.5em 0;
     @include media(">=md") {
