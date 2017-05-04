@@ -4,9 +4,9 @@ context:
   - section: about-video
   - section: about-digits
   - section: portfolio
-  # - section: services
+  - section: services
+  - section: assortiment
   # # - section: our-works
-  # # - section: assortiment
   # # - section: offer
   # # - section: calculator
   # # - section: how

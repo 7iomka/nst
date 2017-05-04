@@ -68,7 +68,7 @@ import deferImages from "utils/defer-images.js";
 
 
 	import assortiment from './components/sections/home/assortiment/assortiment.js';
-	import assortimentModalActions from './components/global/assortiment-modal/assortiment-modal.js';
+	import assortimentSliderActions from './components/global/assortiment-slider/assortiment-slider.js';
 
 	import offerActions from './components/sections/home/offer/offer.js';
 	import mapActions from './components/partials/site-footer/map.js';
@@ -95,7 +95,7 @@ domready(function () {
 		// mapActions: mapActions.init(),
 		modalActions: modalActions.init(),
 		siteModals: siteModals.init(),
-		// assortimentModalActions: assortimentModalActions.init(),
+		assortimentSliderActions: assortimentSliderActions.init(),
 		// offerActions: offerActions.init(),
 		aboutDigits: aboutDigits.init(),
 		portfolioActions: portfolioActions.init(),

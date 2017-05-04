@@ -1,4 +1,7 @@
 {% extends "@section" %}
+{% block section__custom %}
+  <div class="services__header-part"></div>
+{% endblock %}
 {% block section %}
   <div class="advantages">
     <div class="container">
@@ -14,24 +17,29 @@
       </div>
     </div>
   </div>
-  <div class="container">
-      <h3 class="services__sep-title">{{ sepTitle }}</h3>
-    <div class="row services__container">
-      {% for service in services %}
-      {% if loop.last %}
-        {% set mobileLastClass = 'col-12' %}
-      {% else %}
-        {% set mobileLastClass = 'col-6' %}
-      {% endif %}
-        <div class="{{ mobileLastClass }} col-sm-4 col-md-3 col-lg-5ths mb-6">
-            {% set servicesConfig = {
-              delay: loop.index*10
-            } | objAssign(service)%}
-            {% render "@service", servicesConfig %}
-        </div>
-      {% endfor %}
+  <div class="services__content">
+    <div class="text-center">
+      <div class="col-12">
+        <h3 class="services__sep-title">{{ sepTitle }}</h3>
+      </div>
     </div>
-  </div>
-  <div class="services__inline-bg" style="background: url({{ '/assets/images/sections/services/services-bg.png' | path }}) 0 100% no-repeat; width: 892px; height: 697px;">
+    <div class="container">
+      <div class="row justify-content-center">
+        {% for service in services %}
+        {% if loop.last %}
+          {% set mobileLastClass = 'col-12' %}
+        {% else %}
+          {% set mobileLastClass = 'col-6' %}
+        {% endif %}
+          <div class="{{ mobileLastClass }} col-sm-4 mb-6">
+              {% set servicesConfig = {
+                delay: loop.index*10,
+                icon: '/assets/images/sections/services/s'+ loop.index + '.png'
+              } | objAssign(service)%}
+              {% render "@service", servicesConfig %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 {% endblock %}

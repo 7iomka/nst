@@ -11,48 +11,13 @@ context:
     - advantage: Оформление процедуры <br>таможенного транзита
   sepTitle: Наша компания внесена в единый реестр таможенных перевозчиков
   services:
-    - icon: /assets/images/icons/services/1.png
-      link: "#service-1"
-      label: "Резка стекла <br>и зеркал"
-    - icon: /assets/images/icons/services/2.png
-      link: "#service-2"
-      label: "Обработка <br>кромки"
-    - icon: /assets/images/icons/services/3.png
-      link: "#service-3"
-      label: "Сверление и <br>фрезеровка"
-    - icon: /assets/images/icons/services/4.png
-      link: "#service-4"
-      label: "Фацет"
-    - icon: /assets/images/icons/services/5.png
-      link: "#service-5"
-      label: "Закалка <br>стекла"
-    - icon: /assets/images/icons/services/6.png
-      link: "#service-6"
-      label: "Замеры и <br>консультации"
-    - icon: /assets/images/icons/services/7.png
-      link: "#service-7"
-      label: "Доставка <br>стекла"
-    - icon: /assets/images/icons/services/8.png
-      link: "#service-8"
-      label: "Монтаж <br>изделий"
-    - icon: /assets/images/icons/services/9.png
-      link: "#service-9"
-      label: "Покраска <br>стекла"
-    - icon: /assets/images/icons/services/10.png
-      link: "#service-10"
-      label: "Пескоструйная <br>обработка"
-    - icon: /assets/images/icons/services/11.png
-      link: "#service-11"
-      label: "УФ-склейка"
-    - icon: /assets/images/icons/services/12.png
-      link: "#service-12"
-      label: "Изготовление <br>триплекса"
-    - icon: /assets/images/icons/services/13.png
-      link: "#service-13"
-      label: "Фотопечать <br>на стекле"
-    - icon: /assets/images/icons/services/14.png
-      link: "#service-14"
-      label: "Зеркальное <br>панно"
-    - icon: /assets/images/icons/services/15.png
-      link: "#service-15"
-      label: "Душевые <br>кабины"
+  - title: "Используем <br>ГЛОСАВ"
+    description: "Круглосуточное слежение за передвижением вашего груза"
+  - title: "Постоянная <br>мобильная связь с <br>водителями"
+    description: "Наши водители всегда на связи, что позволяет нам оперативно решать возникшие вопросы и проблемы"
+  - title: "Страхование <br>грузов"
+    description: "По желанию заказчика мы можем застраховать перевозимый груз"
+  - title: "Аккредитация в <br>портах"
+    description: "Мы имеем круглосуточный доступ на следующие терминалы: ПЛП, МТПСПБ, ММПК Бронка, ПКТ, КСТП"
+  - title: "Помощь с <br>погрузкой - выгрузкой (ПРР)"
+    description: "Наши специалисты всегда готовы организовать погрузочно-разгрузочные работы"
