@@ -193,6 +193,7 @@ let webpackConfig = {
     // externals: ["react", /^@angular\//],
     externals: [
       'TweenLite',
+      'window',
     {
       jquery: "jQuery"
     }

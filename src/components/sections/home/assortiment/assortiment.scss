@@ -1,10 +1,38 @@
 .assortiment {
-      padding: 6.5em 0;
+      padding: 11em 0 15.9em;
+      position: relative;
       overflow: hidden;
-      background: url('../images/sections/assortiment/assortiment__bg.jpg') 50% 0 no-repeat;
+      background: url('../images/sections/assortiment/assortiment__bg.jpg') 50% 0% no-repeat;
+      @include media("<lg"){
+        background-size: cover;
+      };
+
+  // white parts
+  &__header-part {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 280px;
+    background: url('../images/sections/assortiment/assortiment__header-part-bg.png') 50% 0 no-repeat;
+    background-size: contain;
+  }
+  &__bottom-part {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    height: 280px;
+    background: url('../images/sections/assortiment/assortiment__bottom-part-bg.png') 50% 100% no-repeat;
+    background-size: contain;
+  }
 
   .section-title {
     color: white;
+  }
+
+  &__relative-content {
+    position: relative;
   }
   &__item {
     margin: 4.5em 0;
@@ -68,6 +96,40 @@
       font-size: 1.8em;
       margin: 1em auto;
       max-width: 320px;
+  }
+
+  // base
+  &-base {
+    &__item {
+        background: white;
+        padding: 2.7em 0 2em;
+    }
+
+    &__image {
+        padding: 0 1.1em;
+        svg {
+            height: 105px;
+            margin: auto;
+            max-width: 100%;
+        }
+    }
+
+    &__desc {
+        font-size: 2.2em;
+        text-align: center;
+        line-height: 1;
+        padding-top: em-rel(1.1, 2.2);
+    }
+
+    // equal 10px margin
+    .row {
+        margin-right: -5px;
+        margin-left: -5px;
+        > div {
+           padding-right: 5px;
+           padding-left: 5px;
+       }
+    }
   }
 }
 

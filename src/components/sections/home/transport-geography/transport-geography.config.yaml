@@ -1,0 +1,6 @@
+context:
+  id: transport-geography
+  sectionClassList: transport-geography
+  titleConfig:
+    title: География перевозок
+  mapImage: /assets/images/sections/transport-geography/map__preview-bg.png

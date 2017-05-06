@@ -3,3 +3,12 @@ context:
   sectionClassList: assortiment
   titleConfig:
     title: Наш автопарк
+  assortimentBase:
+  - image: 4x2
+    desc: Колесная база <strong>4х2</strong>
+  - image: 6x2
+    desc: Колесная база <strong>6х2</strong>
+  - image: 6x4
+    desc: Колесная база <strong>6х4</strong>
+  - image: 8x4
+    desc: Колесная база <strong>8х4</strong>

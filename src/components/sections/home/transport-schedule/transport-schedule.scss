@@ -1,0 +1,40 @@
+.transport-schedule {
+  padding-top: 12em;
+
+  /** container with chart **/
+  &__chart {
+    margin-top: 4em;
+  }
+  /**
+   * custom styles for transport chart
+   */
+   /** BEM **/
+   .chart {
+     &__indicator-value {
+       background: url('../images/sections/transport-schedule/transport-schedule__indicator-value-bg.png') 0 100% no-repeat;
+     }
+
+   }
+
+   &__legend {
+    font-weight: 700;
+    position: relative;
+    margin: 1.5em 0;
+    line-height: normal;
+    &-icon {
+      content: "";
+      background: url('../images/sections/transport-schedule/transport-schedule__legend-img.png') 50% 50% no-repeat;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      background-size: contain;
+      margin-right: 1.7em;
+    }
+    &-label {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 2em;
+    }
+  }
+}

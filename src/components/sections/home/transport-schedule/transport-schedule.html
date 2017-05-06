@@ -1,0 +1,14 @@
+{% extends "@section" %}
+{% block section %}
+  <div class="container">
+    <div class="transport-schedule__chart">
+      {% render "@chart" %}
+    </div>
+    <div class="text-center" data-aos="fade"
+         data-aos-easing="ease-in-sine" data-aos-delay="450">
+         <h3 class="transport-schedule__legend">
+           <span class="transport-schedule__legend-icon"></span><span class="transport-schedule__legend-label">{{ legend }}</span>
+         </h3>
+    </div>
+  </div>
+{% endblock %}

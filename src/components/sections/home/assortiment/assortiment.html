@@ -3,7 +3,27 @@
   <div class="assortiment__header-part"></div>
 {% endblock %}
 {% block section %}
-  <div class="container">
-    {% render "@assortiment-slider" %}
+  <div class="assortiment__relative-content">
+    <div class="container">
+      {% render "@assortiment-slider" %}
+      <div class="assortiment-base">
+        <div class="row">
+          {% for item in assortimentBase %}
+            <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+              <div class="assortiment-base__item">
+                <div class="assortiment-base__image">
+                  {% include item.image + '.svg' %}
+                </div>
+                <div class="assortiment-base__desc">
+                  {{ item.desc }}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
   </div>
+   <div class="assortiment__bottom-part"></div>
 {% endblock %}

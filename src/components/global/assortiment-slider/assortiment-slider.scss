@@ -1,6 +1,6 @@
 
 .assortiment-slider {
-  margin: 6em 0;
+  margin: 6em 0 10em;
   &__body {
       display: flex;
       @include media("<md") {
@@ -24,6 +24,7 @@
   &__description {
     width: 34%;
     background: white;
+    text-align: center;
     @include media("<md") {
       width: 100%;
     };

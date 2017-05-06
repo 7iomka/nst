@@ -6,6 +6,8 @@ context:
   - section: portfolio
   - section: services
   - section: assortiment
+  - section: transport-schedule
+  - section: transport-geography
   # # - section: our-works
   # # - section: offer
   # # - section: calculator

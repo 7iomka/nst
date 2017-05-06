@@ -68,9 +68,11 @@ import deferImages from "utils/defer-images.js";
 
 
 	import assortimentSliderActions from './components/global/assortiment-slider/assortiment-slider.js';
+	import transportScheduleActions from './components/sections/home/transport-schedule/transport-schedule.js';
 
 	import offerActions from './components/sections/home/offer/offer.js';
-	import mapActions from './components/partials/site-footer/map.js';
+	import transportGeographyMapActions from './components/sections/home/transport-geography/transport-geography.js';
+	// import mapActions from './components/partials/site-footer/map.js';
 
   //
   // import './components/common/accordion/accordion-init.js';
@@ -90,10 +92,12 @@ domready(function () {
 		videoReview: videoReview.init(),
 		// scrollLinks: scrollLinks.init(),
 		// gallery: gallery.init(),
+		transportGeographyMapActions: transportGeographyMapActions.init(),
 		// mapActions: mapActions.init(),
 		modalActions: modalActions.init(),
 		siteModals: siteModals.init(),
 		assortimentSliderActions: assortimentSliderActions.init(),
+		transportScheduleActions: transportScheduleActions.init(),
 		// offerActions: offerActions.init(),
 		aboutDigits: aboutDigits.init(),
 		portfolioActions: portfolioActions.init(),

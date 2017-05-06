@@ -1,0 +1,14 @@
+{% extends "@section" %}
+{% block section %}
+<div class="transport-geography__map" data-aos="fade" data-aos-easing="ease-in-sine">
+  <div class="transport-geography__map-preview" style="background: url('{{ mapImage | path }}') 50% 0 no-repeat;"></div>
+  <div class="transport-geography__map-container">
+    <div class="transport-geography__preloader-overlay">
+      {% render "@preloader", { customClassList: 'transport-geography__preloader'}, true %}
+    </div>
+    <div class="transport-geography__map-wrapper">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

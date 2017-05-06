@@ -1,0 +1,6 @@
+context:
+  id: transport-schedule
+  sectionClassList: transport-schedule
+  titleConfig:
+    title: График количества перевозок <br>за последние 5 лет
+  legend: Перевезено единиц техники и оборудования
