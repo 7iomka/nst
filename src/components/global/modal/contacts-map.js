@@ -1,36 +1,21 @@
-require('is-in-viewport/lib/isInViewport.js');
 /********************************      transportGeography -- map settings      *******************/
-  function transportGeographyMapSettings() {
+  function contactsMapSettings() {
     var myMap,
         mapIsLoaded = false,
         $window = $(window);
 
-    var $transportGeographyCore  = $('.transport-geography__map');
+    var $contactsMapContainer  = $('.contacts-map__container');
 
-    var $mapPreloader        = $transportGeographyCore.find('.transport-geography__preloader'),
-        $mapPreloaderOverlay = $transportGeographyCore.find('.transport-geography__preloader-overlay');
+    var $mapPreloader        = $contactsMapContainer.find('.contacts-map__preloader'),
+        $mapPreloaderOverlay = $contactsMapContainer.find('.contacts-map__preloader-overlay');
 
-    // check if map is in viewport and run some actions (once and on scroll)
-    $window.on('scroll', _.debounce(whenMapIsInViewportActions,200)).trigger('scroll');
 
-    /**
-     * Some actions for map in a viewport
-     */
-    function whenMapIsInViewportActions(){
-      // if map loading no need anymore
-      if($transportGeographyCore.hasClass('map-loading')) return;
-      // run some actions after core block will be visible (on no touch devices)
-      if ($transportGeographyCore.hasClass('aos-animate')) {
-        expandMap();
-      } else {
-        // if that is touch device
-        if (Modernizr.touchevents) {
-          if($transportGeographyCore.is(':in-viewport')) {
-            expandMap();
-          }
+    $(document).on('onComplete.fb', function( e, instance, slide ) {
+        if(slide.src === '#contacts-map-modal') {
+          expandMap();
         }
-      }
-    }
+    });
+
 
 
     /**
@@ -42,13 +27,14 @@ require('is-in-viewport/lib/isInViewport.js');
           return;
       }
 
-      $transportGeographyCore.addClass('transport-geography__map--expanded');
+      $contactsMapContainer.addClass('contacts-map__container--expanded');
 
       !mapIsLoaded && (
         $mapPreloaderOverlay.fadeIn(),
         $mapPreloader.fadeIn()
       );
 
+    
       // if ymaps is not defined - get it
       if(typeof ymaps === 'undefined'){
         $.getScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', afterYMapsReady);
@@ -57,20 +43,18 @@ require('is-in-viewport/lib/isInViewport.js');
       }
 
       function afterYMapsReady(){
-        $transportGeographyCore.addClass('map-loading');
-          ymaps.ready(function() {
+        ymaps.ready(function() {
 
-              YandexReadyHandlerSiteMap();
-              setTimeout(function () {
-                  $mapPreloader.fadeOut(),
-                  $mapPreloaderOverlay.fadeOut(),
-                  mapIsLoaded = true;
-                  $transportGeographyCore.removeClass('map-loading');
-              },200)
+            YandexReadyHandlerSiteMap();
+            setTimeout(function () {
+                $mapPreloader.fadeOut(),
+                $mapPreloaderOverlay.fadeOut(),
+                mapIsLoaded = true;
 
-          });
+            },200)
+
+        });
       }
-
 
     }
 
@@ -79,7 +63,7 @@ require('is-in-viewport/lib/isInViewport.js');
      */
     function YandexReadyHandlerSiteMap() {
         if (!myMap) {
-            myMap = new ymaps.Map("map", {
+            myMap = new ymaps.Map("contacts-map", {
                 center: [
                     55.81764532573242, 37.575106041664064
                 ],
@@ -188,5 +172,5 @@ require('is-in-viewport/lib/isInViewport.js');
   }
 
   domready(function () {
-    exports.init = transportGeographyMapSettings
+    exports.init = contactsMapSettings
   })

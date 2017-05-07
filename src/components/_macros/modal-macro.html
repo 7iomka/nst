@@ -2,9 +2,11 @@
 {# BASIC Modal #}
 {% macro Modal(config) %}
 <div style="display: none;" class="modal {% for mod in config.mods -%} modal--{{ mod }} {%- endfor %} {{ config.customClassList }}" id="{{ config.id }}">
+  {% if config.title %}
   <div class="modal__header">
     <h2 class="modal__title">{{ config.title }}</h2>
   </div>
+  {% endif %}
 	<div class="modal__body">
     {% if config.wrapper %}
       <div class="{{ config.wrapper }}">

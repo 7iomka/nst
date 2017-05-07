@@ -30,17 +30,10 @@ $square-width: 1082px;
       top: 0;
       height: 808px;
       background: url('../images/sections/header/header__back.jpg') 50% 0 no-repeat;
-      @include media("<=620px"){
-        background-size: 620px;
-        background-position: 50% 280px;
-      };
 
-      @include media("<md"){
-          height: 678px;
-      };
-      @include media(">620px", "<md"){
-        background-size: 100%;
-        background-position: 50% 250px;
+      @include media("<sm"){
+        background-size: 991px;
+        background-position: 35% 140px;
       };
 
       &:before {
@@ -49,14 +42,7 @@ $square-width: 1082px;
         left: 0;
         display: block;
         width: 100%;
-
         z-index: 1;
-
-        @include media("<=620px"){
-          bottom: 35%;
-          height: 200px;
-          background: linear-gradient(to bottom, white 0%,rgba(246,246,246,0.53) 47%, rgba(246,246,246,0) 100%);
-        };
         background: linear-gradient(to bottom, white 250px, rgba(246, 246, 246, 0) 100%);
         height: 320px;
       }
@@ -71,6 +57,13 @@ $square-width: 1082px;
         @include media("<md"){
           bottom: -115px;
           background-size: auto 140px;
+        };
+        @include media("<840px"){
+          bottom: 30px;
+        };
+
+        @include media("<sm"){
+          bottom: -123px;
         };
       }
     }
@@ -199,18 +192,34 @@ $square-width: 1082px;
     &__car {
       position: absolute;
       left: 0;
-      right: 0;
       top: 0;
+      width: 100%;
       height: 100%;
       background: url('../images/sections/header/header__car-full.png') 50% 100% no-repeat;
       z-index: $z-index__car;
       @include media(">=lg", "<xl") {
-        background-size: 1520px;
+        background-size: 1700px;
+        background-position: 70% 100%;
       };
+      @include media(">=md", "<lg") {
+        background-size: 1500px;
+        background-position: 80% 100%;
+      };
+      @include media("<lg"){
+        top: auto;
+        bottom: -83px;
+        background-position: -100em 100%;
+        background-size: 1400px;
+      };
+
       @include media("<md"){
         height: 92%;
       };
-
+      @include media("<sm"){
+        background-size: 1036px;
+        bottom: -59px;
+        background-position: -75em 100%;
+      };
       // @include media("device-width>=320px", "device-width<=568px", "portrait") {
       @include media("device-width<=320px") {
         height: 568px;
@@ -304,11 +313,11 @@ $square-width: 1082px;
 .site-title {
   @include media("<lg"){
     text-align: center;
-    border-radius: 0 0 150px 150px/20px;
+    // border-radius: 0 0 150px 150px/20px;
   };
-  @include media(">=md","<lg") {
-    background: linear-gradient(to bottom, rgba(245, 247, 249, 0) 0%,rgba(245, 247, 249, 0.78) 40%, rgba(255, 255, 255, 0.38) 100%);
-  };
+  // @include media(">=md","<lg") {
+  //   background: linear-gradient(to bottom, rgba(245, 247, 249, 0) 0%,rgba(245, 247, 249, 0.78) 40%, rgba(255, 255, 255, 0.38) 100%);
+  // };
   &__line {
       display: block;
       font-size: 4.8em;
@@ -320,6 +329,9 @@ $square-width: 1082px;
         font-size: 6.5em;
       };
       @include media(">=md") {
+        font-size: 7em;
+      };
+      @include media(">=840px") {
         font-size: 8em;
       };
       @include media(">=#{$square-width}") {
@@ -372,11 +384,6 @@ $square-width: 1082px;
     &__square {
         display: none;
     }
-
-    &__car {
-        background-size: contain;
-    }
-
 
     &__back {
         height: 700px;

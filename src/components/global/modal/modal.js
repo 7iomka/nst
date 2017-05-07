@@ -28,7 +28,7 @@ function modalActions() {
         }
     });
   });
-
+  
 
   if($modalLinkAutoOpen.length) {
     $modalLinkAutoOpen.click();

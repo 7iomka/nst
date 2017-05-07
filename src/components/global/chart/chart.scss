@@ -95,7 +95,7 @@
         @include media("<sm"){
           margin-left: $space-between-indicators--sm;
         };
-        @include media("<420px"){
+        @include media("<400px"){
           margin-left: $space-between-indicators--xs;
         };
 
@@ -183,7 +183,7 @@
         @include media("<sm"){
           margin-left: $space-between-indicators--sm;
         };
-        @include media("<420px"){
+        @include media("<400px"){
           margin-left: $space-between-indicators--xs;
         };
       }

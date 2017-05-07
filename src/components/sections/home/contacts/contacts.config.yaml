@@ -1,0 +1,11 @@
+context:
+  id: contacts
+  sectionClassList: contacts
+  titleConfig:
+    title: Контакты
+  gallery:
+  - src: /assets/images/sections/contacts/1.png
+  - src: /assets/images/sections/contacts/1.png
+  - src: /assets/images/sections/contacts/1.png
+  adress: 'Офис: <span>Россия, 199178, Санкт-Петербург, <br>Московское ш., д.25, корп 1, лит. А, офис 201</span>'
+  openMapText: (Показать на карте)

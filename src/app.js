@@ -69,6 +69,7 @@ import deferImages from "utils/defer-images.js";
 
 	import assortimentSliderActions from './components/global/assortiment-slider/assortiment-slider.js';
 	import transportScheduleActions from './components/sections/home/transport-schedule/transport-schedule.js';
+	import contactsMapModalActions from './components/global/modal/contacts-map.js';
 
 	import offerActions from './components/sections/home/offer/offer.js';
 	import transportGeographyMapActions from './components/sections/home/transport-geography/transport-geography.js';
@@ -98,6 +99,7 @@ domready(function () {
 		siteModals: siteModals.init(),
 		assortimentSliderActions: assortimentSliderActions.init(),
 		transportScheduleActions: transportScheduleActions.init(),
+		contactsMapModalActions: contactsMapModalActions.init(),
 		// offerActions: offerActions.init(),
 		aboutDigits: aboutDigits.init(),
 		portfolioActions: portfolioActions.init(),

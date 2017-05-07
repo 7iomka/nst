@@ -124,6 +124,7 @@
       &:after {
         z-index: 1;
         background-color: rgba(82, 69, 69, 0.6);
+        background-image: linear-gradient(to left, rgba(11, 130, 210, 0.25) 0%, rgba(102, 143, 191, 0.25) 50%, rgba(48, 61, 122, 0.25) 100%);
       }
 
       &:hover:before,

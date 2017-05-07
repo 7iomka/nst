@@ -8,6 +8,7 @@ context:
   - section: assortiment
   - section: transport-schedule
   - section: transport-geography
+  - section: contacts
   # # - section: our-works
   # # - section: offer
   # # - section: calculator

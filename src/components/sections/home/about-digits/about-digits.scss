@@ -1,7 +1,10 @@
 .about-digits {
   position: relative;
   z-index: 5;
-  padding-bottom: 60px;
+  padding-bottom: 6em;
+  @include media("<lg"){
+    padding-top: 6em;
+  };
 
   &__stripes {
     display: none;

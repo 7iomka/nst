@@ -5,8 +5,12 @@
   $z-index__relative-content: 5;
 
   position: relative;
-  padding-top: 13.4em;
-  height: 95em;
+  padding: 5em 0;
+  @include media(">=lg"){
+    padding-top: 13.4em;
+    height: 95em;
+  };
+
   &__bg {
      background: url('../images/sections/about-video/about-video__bg.png') 50% 0 no-repeat;
      position: absolute;
@@ -16,11 +20,10 @@
      height: 1428px;
      z-index: 4;
      @include media("<lg") {
-      //  top: -168px;
-       top: -17vw;
-       /* hack to engage viewport-units-buggyfill */
-       content: 'viewport-units-buggyfill; top: -17vw;';
-       background-size: contain;
+      top: 0;
+      height: 100%;
+      background: url('../images/sections/about-video/about-video__bg--mobile.png') 0 0 no-repeat;
+      background-size: cover;
      };
   }
 
@@ -47,8 +50,13 @@
   &__corner {
     position: absolute;
     background: url('../images/sections/about-video/about-video__corner.png') 0 0 no-repeat;
-    width: 268px;
-    height: 268px;
+    width: 26.8em;
+    height: 26.8em;
+    @include media("<lg"){
+      max-width: 13vw;
+      max-height: 13vw;
+      content: 'viewport-units-buggyfill; max-width: 13vw; max-height: 13vw;';
+    };
     &--l-t {
       left: 0;
       top: 0

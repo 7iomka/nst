@@ -1,9 +1,30 @@
 .transport-schedule {
   padding-top: 12em;
+  position: relative;
 
+  /**
+   * stripes
+   */
+   &__stripes {
+     @extend .about-digits__stripes;
+
+   }
+   &__stripe {
+     @extend .about-digits__stripe;
+     background-image: url('../images/sections/transport-schedule/transport-schedule__stripe.png');
+      &--1 {
+        top: -167px;
+        right: -79px;
+      }
+
+      &--2 {
+        top: -167px;
+        right: -147px;
+      }
+   }
   /** container with chart **/
   &__chart {
-    margin-top: 4em;
+    margin-top: 7em;
   }
   /**
    * custom styles for transport chart
@@ -35,6 +56,10 @@
       display: inline-block;
       vertical-align: middle;
       font-size: 2em;
+      @include media("<480px"){
+        max-width: 70%;
+        text-align: left;
+      };
     }
   }
 }
