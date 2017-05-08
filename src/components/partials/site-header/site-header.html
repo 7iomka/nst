@@ -51,12 +51,12 @@
             <span class="site-title__line" data-aos="zoom-in" data-aos-delay="300">грузов </span>
             <span class="site-title__line site-title__line--highlighted" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-out" data-aos-duration="750">по России и за рубежом</span>
           </h1>
-          <div class="header__action" data-aos="fade-up" data-aos-delay="400">
+          <div class="header__action" >
             {% render "@button--primary", {
              label: 'Оставить заявку на перевозку',
              customClassList: 'header__action-button modal-link',
              attrs: {
-               'data-modal-target':'#action-offer'
+               'data-modal-target':'#action-order'
              }
            }, true %}
           </div>

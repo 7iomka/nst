@@ -10,7 +10,8 @@
         $mapPreloaderOverlay = $contactsMapContainer.find('.contacts-map__preloader-overlay');
 
 
-    $(document).on('onComplete.fb', function( e, instance, slide ) {
+    $(document).on('afterShow.fb', function( e, instance, slide ) {
+      // var $modalSource = $(instance.current.src);
         if(slide.src === '#contacts-map-modal') {
           expandMap();
         }
@@ -34,7 +35,7 @@
         $mapPreloader.fadeIn()
       );
 
-    
+
       // if ymaps is not defined - get it
       if(typeof ymaps === 'undefined'){
         $.getScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', afterYMapsReady);
@@ -65,7 +66,7 @@
         if (!myMap) {
             myMap = new ymaps.Map("contacts-map", {
                 center: [
-                    55.81764532573242, 37.575106041664064
+                    59.820572, 30.360886
                 ],
                 zoom: 17,
                 controls: [],
@@ -84,83 +85,43 @@
            });
            myMap.controls.add(zoomControl);
 
-           if(Modernizr.touchevents) {
-            //  myMap.events.add('touchstart', function (e) {
-            //     e.preventDefault(); // При двойном щелчке зума не будет.
-            //     alert('свайпить незя')
-            //  });
-             myMap.behaviors.disable('drag');
-           }
-            myMap.geoObjects.add(new ymaps.GeoObject({
-                geometry: {
-                    type: "Point",
-                    coordinates: [55.816855509771, 37.574210183853]
-                },
-                properties: {
-                    balloonContent: decodeURIComponent("%3Cp%3E%0A%09%20%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%20%D0%B4.11%0A%3C%2Fp%3E"),
-                    iconCaption: decodeURIComponent("%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%20%D0%B4.11"),
-                    hintCaption: decodeURIComponent("%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%20%D0%B4.11")
-                }
-            }, {preset: "islands#redDotIconWithCaption"}));
-            myMap.geoObjects.add(new ymaps.GeoObject({
-                geometry: {
-                    type: "Point",
-                    coordinates: [55.818645030304, 37.574513273471]
-                },
-                properties: {
-                    balloonContent: decodeURIComponent("%3Cp%3E%0A%09%D0%B3.%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%BC.%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%3Cbr%3E%0A%3C%2Fp%3E"),
-                    iconCaption: decodeURIComponent("C%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%20%D0%BC%D0%B5%D1%82%D1%80%D0%BE%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F"),
-                    hintCaption: decodeURIComponent("C%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%20%D0%BC%D0%B5%D1%82%D1%80%D0%BE%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F")
-                }
-            }, {preset: "islands#blueCircleDotIconWithCaption"}));
-            myMap.geoObjects.add(new ymaps.GeoObject({
-                geometry: {
-                    type: "LineString",
-                    coordinates: [
-                        [
-                            55.816872147601, 37.574191979669
-                        ],
-                        [
-                            55.816940105545, 37.574060551427
-                        ],
-                        [
-                            55.816805699736, 37.573419503473
-                        ],
-                        [
-                            55.81694010552, 37.573328308366
-                        ],
-                        [
-                            55.817349360806, 37.575138799451
-                        ],
-                        [
-                            55.817927363132, 37.574817841691
-                        ],
-                        [
-                            55.818532538874, 37.574475426259
-                        ],
-                        [
-                            55.818574822035, 37.574550528111
-                        ],
-                        [
-                            55.818621635453, 37.57452638823
-                        ],
-                        [55.818644287096, 37.574512977185]
-                    ]
-                },
-                properties: {
-                    balloonContent: decodeURIComponent(""),
-                    iconCaption: decodeURIComponent("%D0%9A%D0%B0%D0%BA%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BE%D1%82%20%D0%BC%D0%B5%D1%82%D1%80%D0%BE"),
-                    hintCaption: decodeURIComponent("%D0%9A%D0%B0%D0%BA%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BE%D1%82%20%D0%BC%D0%B5%D1%82%D1%80%D0%BE")
-                }
-            }, {
-                fillColor: "#1e98ff",
-                strokeColor: "#1e98ff",
-                fillOpacity: 0.35,
-                strokeOpacity: 1.00000,
-                strokeWidth: 4
-            }));
+          //  if(Modernizr.touchevents) {
+          //   //  myMap.events.add('touchstart', function (e) {
+          //   //     e.preventDefault(); // При двойном щелчке зума не будет.
+          //   //     alert('свайпить незя')
+          //   //  });
+          //    myMap.behaviors.disable('drag');
+          //  }
+          var adressObject = new ymaps.GeoObject({
+              geometry: {
+                  type: "Point",
+                  coordinates: [59.820572, 30.360886]
+              },
+              properties: {
+                  balloonContent: "Россия, 199178, Санкт-Петербург, <br>Московское ш., д.25, корп 1, лит. А, офис 201",
+              }
+          }, {
+            preset: "islands#dotCircleIcon",
+            // iconColor: '#1faee9',
+            iconLayout: 'default#image',
+            iconImageHref: '/assets/images/icons/map-pin.png',
+            iconImageSize: [22, 26],
+            iconImageOffset: [-11, 0],
+            iconOffset: [0, -26],
+            // дополнительно смещаем балун, для открытия над иконкой.
+            balloonOffset: [0, -26],
+            hideIconOnBalloonOpen: false,
+            pane: 'balloon',
+          });
+
+            myMap.geoObjects.add(adressObject);
+            adressObject.balloon.open(myMap.getCenter());
+
+
+
+
             myMap.container.fitToViewport();
-            myMap.behaviors.disable('scrollZoom');
+            // myMap.behaviors.disable('scrollZoom');
             myMap.behaviors.disable('wheel');
 
             return myMap;

@@ -6,7 +6,7 @@ context:
   digitsContent:
   - digits: 2007
     description: Дата основания компании
-  - digits: 17 289
+  - digits: 17289
     description: Перевозок осуществлено
   - digits: 20
     description: Тягачей в собственном <br>автопарке

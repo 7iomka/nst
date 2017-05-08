@@ -47,30 +47,3 @@
 
 
 @import 'vendors/aos/aos';
-
-// for invisible primary
-.bottom-panel {
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 250;
-  display: flex;
-  align-items: center;
-  height: 7.1em;
-
-  &--static {
-    position: absolute;
-  }
-  &--fixed {
-    position: fixed;
-    transform: translate(0, 100%);
-    &.active {
-      transform: none;
-    }
-  }
-}
-
-.services {
-  opacity: 0;
-}

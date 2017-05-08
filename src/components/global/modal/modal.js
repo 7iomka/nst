@@ -1,4 +1,6 @@
-import 'vendors/jquery.fancybox.min.js';
+// import 'vendors/jquery.fancybox.min.js';
+// import 'vendors/jquery.fancybox-3.0.min.js';
+import 'vendors/jquery.fancybox-3.1.2.min.js';
 
 function modalActions() {
   if(!$('.modal-link').length) return;
@@ -15,20 +17,38 @@ function modalActions() {
     //   closeClickOutside = false;
     // }
 
+
     $.fancybox.close();
     $.fancybox.open({
         src  : $modalTarget,
         opts : {
-          focus: false,
-          closeClickOutside : closeClickOutside,
-          touch: false,
-          onComplete : function() {
-
+          autoFocus: false,
+          clickOutside : 'close',
+          animationEffect : "fade",
+          touch : false,
+          hash : false,
+          infobar: true,
+          transitionEffect : "slide",
+          transitionDuration : 100,
+          spinnerTpl : '<div class="preloader" style="display:block"></div>',
+          lang : 'ru',
+        	i18n : {
+        		'ru' : {
+        			CLOSE       : 'Закрыть',
+        			NEXT        : 'Назад',
+        			PREV        : 'Вперёд',
+        			ERROR       : 'Не удалось установить соединение. <br/> Пожалуйста, попробуйте позднее.',
+        			PLAY_START  : 'Начать слайдшоу',
+        			PLAY_STOP   : 'Поставить на паузу',
+        			FULL_SCREEN : 'На полный экран',
+        			THUMBS      : 'Превьюшки'
+        		},
           }
+
         }
     });
   });
-  
+
 
   if($modalLinkAutoOpen.length) {
     $modalLinkAutoOpen.click();

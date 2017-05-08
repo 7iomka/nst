@@ -18,9 +18,7 @@
 
             <div class="about-digits__item">
               <div class="about-digits__item-header">
-                <div class="about-digits__digits about-digits__digits--{{ loop.index }}">
-                  {{ item.digits }}
-                </div>
+                <div class="about-digits__digits about-digits__digits--{{ loop.index }}" data-count-to="{{ item.digits }}">0</div>
                 {% if loop.index == 1 %}
                   <div class="about-digits__item-prefix">г.</div>
                 {% endif %}

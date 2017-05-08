@@ -25,7 +25,7 @@ domready(function () {
         var rules = {},
             messages = {};
 
-        var namespaces = ["user_name", "user_phone", "user_email"];
+        var namespaces = ["user_name", "user_phone"];
 
         $.each(namespaces, function(i, namespace) {
             var $form_elements = $form.find('input[name^="' + namespace + '"], textarea[name^="' + namespace + '"]');
@@ -41,9 +41,9 @@ domready(function () {
                     case "user_phone":
                         message = "Не указан телефон";
                         break;
-                    case "user_email":
-                        message = "Укажите корректный email";
-                        break;
+                    // case "user_email":
+                    //     message = "Укажите корректный email";
+                    //     break;
                     default:
                         message = "Заполните данное поле";
                         break;
@@ -70,6 +70,7 @@ domready(function () {
         $form.validate({
             rules: rules,
             messages: messages,
+            // ignore:'input[type="date"],input[type="time"]',
             highlight: function (element) {
                $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
                $(element).removeClass('form-control-success').addClass('form-control-danger');
@@ -146,7 +147,7 @@ domready(function () {
         form_data.push({name: "task", value: task});
         form_data = $.param(form_data);
 
-        // для заказа делаем свои закономерности в calculator-functions.js
+        // для заказа пишем отдельную функцию (описана ниже или в отдельном файле)
         if (task === 'action-order') {
 
             sendOrder();
@@ -278,7 +279,6 @@ domready(function () {
                   var $modalSource = $(instance.current.src);
                   if ($modalSource.is($formModal)) {
                     resetDataActions();
-                    console.log('eeeeee')
                   }
                 });
 
@@ -293,6 +293,225 @@ domready(function () {
         } // end else
 
     };
+
+
+    /** ЭТУ ФУНКЦИЮ МОЖНО БУДЕТ ВЫНЕСТИ **/
+    function sendOrder(){
+
+        // модальное окно заказа
+        var $orderModal     = $('#action-order');
+        // форма
+        var $orderModalForm = $orderModal.find('.form');
+        // значения элементов формы
+        var name            = $orderModalForm.find("#user_name--order").val();
+        var phone           = $orderModalForm.find("#user_phone--order").val();
+        var comments           = $orderModalForm.find("#user_comments--order").val();
+        var from = $orderModalForm.find("#user_from--order").val();
+        var to = $orderModalForm.find("#user_to--order").val();
+        var dateStart = $orderModalForm.find("#user_date-start--order").val();
+        var dateFinish = $orderModalForm.find("#user_date-finish--order").val();
+        var weight = $orderModalForm.find("#user_weight--order").val();
+        var dimensions = $orderModalForm.find("#user_dimensions--order").val();
+
+        // прочие элементы контейнера
+        var $orderModalTitle            = $orderModal.find('.action-modal__title');
+        var $orderModalContent          = $orderModal.find('.action-modal__content');
+        var $orderModalAnnonce          = $orderModal.find('.action-modal__annonce');
+        var $orderModalPrimaryContainer = $orderModal.find('.primary-container');
+
+        var $orderModalResetButton = $orderModal.find('.modal__button-close');
+
+        var $orderModalPreloader        = $orderModal.find('.preloader');
+
+        var $orderModalSuccessContainer = $orderModal.find('.success-container');
+        var $orderData                  = $orderModalSuccessContainer.find('.order-data');
+
+
+        // время анимации при переключении видимости контейнеров
+        var sendTransitionTime = 400;
+
+
+
+
+        //alert(material_depth);
+        var err = true;
+
+        // Хешируем перезаписываемые элементы контейнера модалки для их восстановления после сброса
+        var primaryData = {
+          $orderModalTitle: $orderModalTitle.html(),
+          $orderModalAnnonce: $orderModalAnnonce.html(),
+          orderModalPrimaryContentHeight: false
+        };
+
+        //alert(material + " " + material_type);return;
+        $.ajax({
+          url: localProxy + '/ajax.php',
+          dataType: 'json',
+          type: 'POST',
+          data: {
+            task: "action-order",
+            user_name: name,
+            user_phone: phone,
+            user_comments: comments,
+            user_from: from,
+            user_date_start: dateStart,
+            user_date_finish: dateFinish,
+            user_weight: weight,
+            user_dimensions: dimensions
+          },
+          timeout: 30000,
+          beforeSend: function() {
+
+            // Получаем высоту первоначального контента (формы) и фиксируем её у родителя
+            // для последующей анимации до высоты результирующего контейнера
+            var orderModalPrimaryContentHeight = $orderModalPrimaryContainer.outerHeight();
+            // сохраняем значение
+            primaryData.orderModalPrimaryContentHeight = orderModalPrimaryContentHeight;
+            $orderModalContent.css('height', orderModalPrimaryContentHeight);
+
+
+
+            // промежуточный заголовок
+            $orderModalTitle.html('Идет отправка...');
+            // скрываем котнейнер с формой
+            $orderModalPrimaryContainer.fadeOut(sendTransitionTime, function(){
+              // включаем прелоадер
+              $orderModalPreloader.fadeIn();
+              // тут выполняем действия в результате полученного аякс-ответа
+            });
+
+          }
+        })
+        .done(function(data) {
+          err = false;
+
+          if (data.is_err == 0) {
+            // финальные действия
+            function finalActions(){
+
+              // обновляем заголовок
+              $orderModalTitle.text('Ваша заявка оформлена');
+
+
+              // получаем высоты контента контейнера с успешными данными о заказе
+              var orderModalSuccessContainerHeight = $orderData.actualHeight(true);
+              // анимируем контейнер до вычисленной высоты
+              $orderModalContent.smoothAnimate({
+                height: orderModalSuccessContainerHeight
+              },{
+                  duration: 600,
+                  easing: 'ease',
+                  complete: function () {
+                      // скрываем прелоадер
+                      $orderModalPreloader.fadeOut();
+                      // убираем статичную высоту
+                      $orderModalContent.css('height', 'auto');
+                      // отображаем данные заказа
+                      $orderData.fadeIn();
+                  }
+              });
+              window.orderReady = true;
+
+            }
+            // выполняем эти действия не раньше чем скроется первоначальный контейнер
+            setTimeout(finalActions, sendTransitionTime);
+
+            // функция сброса данных
+            function resetDataActions() {
+                // ресетим форму
+                $orderModalForm.trigger('reset');
+                // удаляем все классы с полей по отношению к заполненности
+                $orderModalForm.find('.form-group').removeClass('has-success has-danger');
+                $orderModalForm.find('.form-control').removeClass('form-control-success form-control-danger');
+
+                // обновляем заголовок
+                $orderModalTitle.html(primaryData.$orderModalTitle);
+                $orderModalAnnonce.html(primaryData.$orderModalAnnonce);
+
+                /**
+                 * Простой сброс формы (сброс данных в фоне)
+                */
+                // скрываем данные о заявке
+                $orderData.fadeOut(sendTransitionTime);
+                // показываем котнейнер с формой
+                $orderModalPrimaryContainer.fadeIn(sendTransitionTime);
+
+                /**
+                 * Красивый сброс формы (не актуален)
+                */
+                /*
+                    // включаем прелоадер
+                    $orderModalPreloader.fadeIn(sendTransitionTime);
+                    // скрываем данные о заявке
+                    $orderData.fadeOut(sendTransitionTime);
+
+                    var orderModalPrimaryContentHeight = primaryData.orderModalPrimaryContentHeight || $orderModalPrimaryContainer.outerHeight();
+
+                    // $modalContent.css('height', primaryContentHeight);
+                    $orderModalContent.smoothAnimate({
+                      height: orderModalPrimaryContentHeight
+                    },{
+                        duration: 600,
+                        easing: 'ease',
+                        complete: function () {
+                          // выключаем прелоадер
+                          $orderModalPreloader.fadeOut();
+                          // показываем котнейнер с формой
+                          $orderModalPrimaryContainer.fadeIn(sendTransitionTime, function(){
+                            // убираем статичную высоту
+                            $orderModalContent.css('height', 'auto');
+                          });
+                        }
+                    });
+                */
+
+            }
+
+            // по закрытию модалки любым из способов делать ряд действий
+            $(document).one('afterClose.fb', function( e, instance, slide ) {
+              var $modalSource = $(instance.current.src);
+              if ($modalSource.is($orderModal)) {
+                // если данные о заказе выданы (заказ совершен)
+                if(window.orderReady) {
+                  // сбрасываем форму
+                  resetDataActions();
+                } else {
+                  // ничего не делать
+                  e.preventDefault();
+                  return false;
+                }
+              }
+            });
+
+          } else {
+            console.log(data.is_err, 'data.is_err');
+          }
+          //return(data);
+
+        })
+        .fail(function(request, textStatus, errorThrown) {
+          if (err == true) {
+
+            console.log(request.responseText);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+          }
+        })
+        .always(function() {
+          //  alert('always');
+          if (err == true) {
+            //alert(data.err);
+            //$('#button_order').show('slow');
+            //  $('#button_order').attr('disabled',false);
+            //  $('#button_order').attr('value','Отправить');
+          }
+        })
+
+
+
+
+    }
 
 
   }

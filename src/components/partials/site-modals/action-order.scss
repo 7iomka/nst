@@ -32,6 +32,7 @@
     $base: 2;
     font-size: $base*1em;
     margin: em-rel(3, $base) auto;
+    max-width: 30em; 
 
     &:last-child {
       margin-bottom: 0;

@@ -3,14 +3,14 @@
   <div class="assortiment__header-part"></div>
 {% endblock %}
 {% block section %}
-  <div class="assortiment__relative-content">
+  <div class="assortiment__relative-content" data-aos="fade" data-aos-easing="ease-in-sine" >
     <div class="container">
       {% render "@assortiment-slider" %}
       <div class="assortiment-base">
         <div class="row">
           {% for item in assortimentBase %}
             <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
-              <div class="assortiment-base__item">
+              <div class="assortiment-base__item" data-aos="fade-left" data-aos-offset="100" data-aos-delay="{{ loop.index*100 + 200 }}">
                 <div class="assortiment-base__image">
                   {% include item.image + '.svg' %}
                 </div>

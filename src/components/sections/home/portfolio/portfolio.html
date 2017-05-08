@@ -13,7 +13,7 @@
           <div class="row justify-content-center">
             {% for company in companies.items %}
               <div class="col-12 col-sm-6 col-md-4">
-                <div class="portfolio__company">
+                <div class="portfolio__company" data-aos="fade-up" data-aos-delay="{{ loop.index*50 }}">
                     {% render "@img-responsive", company, true %}
                 </div>
               </div>
@@ -36,7 +36,7 @@
           <div class="row justify-content-center">
             {% for i in range(1, 21) %}
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="portfolio__example">
+                <div class="portfolio__example" data-aos="fade-up">
                   {% set exampleImageThumb = "/assets/images/sections/portfolio/examples/thumbs/e" + i + ".jpg" | path  %}
                   {% set exampleImageFull = "/assets/images/sections/portfolio/examples/e" + i + ".jpg" | path %}
                     {% render "@img-responsive--with-overlay", {
@@ -54,7 +54,7 @@
           <div class="row justify-content-center portfolio__more-examples" style="display: none">
             {% for i in range(21, 46) %}
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="portfolio__example">
+                <div class="portfolio__example" >
                   {% set exampleImageThumb = "/assets/images/sections/portfolio/examples/thumbs/e" + i + ".jpg" | path  %}
                   {% set exampleImageFull = "/assets/images/sections/portfolio/examples/e" + i + ".jpg" | path %}
                     {% render "@img-responsive--with-overlay", {

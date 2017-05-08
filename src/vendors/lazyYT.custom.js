@@ -174,7 +174,8 @@
           thumb_img = 'default.jpg';
       }
 
-      thumb_url = ['https://img.youtube.com/vi/', id, '/', thumb_img].join('');
+      // thumb_url = ['https://img.youtube.com/vi/', id, '/', thumb_img].join('');
+      thumb_url = '/assets/images/sections/about-video/about-video__video-thumbnail.jpg';
 
       downloadingImage.onload = function(data) {
         var naturalWidth = getOnloadDataParam(data, 'naturalWidth');
@@ -192,6 +193,9 @@
                     thumbs = item.snippet.thumbnails;
 
                 if (width == 0) width = $thumb.width(); // just to make sure we have width
+
+/** hard! --- decomment **/
+/*
                 if (width > 640 && typeof thumbs.maxres == 'object') {
                     thumb_url = thumbs.maxres.url;
                 } else if (width > 480 && typeof thumbs.standard == 'object') {
@@ -203,6 +207,7 @@
                 } else {
                     thumb_url = thumbs['default'].url;
                 }
+*/
                 setBackgroundImage($thumb, thumb_url);
             });
         } else {

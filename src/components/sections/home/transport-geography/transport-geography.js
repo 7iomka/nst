@@ -60,13 +60,13 @@ require('is-in-viewport/lib/isInViewport.js');
         $transportGeographyCore.addClass('map-loading');
           ymaps.ready(function() {
 
-              YandexReadyHandlerSiteMap();
+              setTimeout(YandexReadyHandlerSiteMap,500);
               setTimeout(function () {
                   $mapPreloader.fadeOut(),
                   $mapPreloaderOverlay.fadeOut(),
                   mapIsLoaded = true;
                   $transportGeographyCore.removeClass('map-loading');
-              },200)
+              },700)
 
           });
       }

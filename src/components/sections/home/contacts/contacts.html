@@ -1,6 +1,6 @@
 {% extends "@section" %}
 {% block section %}
-  <div class="container contacts__relative-content">
+  <div class="container contacts__relative-content" data-aos="fade-in" data-aos-easing="ease-in-sine" >
     <div class="contacts__gallery">
       {% for item in gallery %}
         <div class="contacts__gallery-item">
@@ -21,7 +21,7 @@
        label: 'Оставить заявку на перевозку',
        customClassList: 'contacts__action-button modal-link',
        attrs: {
-         'data-modal-target':'#action-offer'
+         'data-modal-target':'#action-order'
        }
      }, true %}
     </div>

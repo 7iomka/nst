@@ -20,6 +20,9 @@ import "vendors/jquery.smooth-animate.js";
 // util for run some code after css transition end
 import "utils/jquery.after-transition.js";
 
+// util for calc actual height of hidden elements
+import "utils/jquery.actualHeight.js";
+
 
 // defer images util
 import deferImages from "utils/defer-images.js";
@@ -34,13 +37,15 @@ import deferImages from "utils/defer-images.js";
 	import './components/common/button/button.js';
 	// init modal-links && fancybox set-up
 	import modalActions from './components/global/modal/modal.js';
-
+	// yutube preload
 	import videoReview from './components/common/video-review/video-review.js';
 	// init scroll-links to target
-	import scrollLinks from './components/global/scroll-link/scroll-link.js';
+	// import scrollLinks from './components/global/scroll-link/scroll-link.js';
+
 	// ajax && validation for all siteModals
 	import siteModals from './components/partials/site-modals/site-modals.js';
-	// import './components/common/calendar/calendar.js';
+	// calendar component
+	import './components/common/calendar/calendar.js';
 	// import './components/common/gallery-slider/gallery-slider.js';
 	// import './components/common/goup/goup.js';
 	// import './components/common/news-list/news-list.js';
@@ -61,17 +66,21 @@ import deferImages from "utils/defer-images.js";
 
 
 	// import headerMenu from './components/partials/site-header/header-menu.js';
-	import gallery from './components/sections/home/our-works/our-works.js';
+	// import gallery from './components/sections/home/our-works/our-works.js';
 
 	import aboutDigits from './components/sections/home/about-digits/about-digits.js';
+
 	import portfolioActions from './components/sections/home/portfolio/portfolio.js';
 
 
 	import assortimentSliderActions from './components/global/assortiment-slider/assortiment-slider.js';
+
 	import transportScheduleActions from './components/sections/home/transport-schedule/transport-schedule.js';
+
 	import contactsMapModalActions from './components/global/modal/contacts-map.js';
 
-	import offerActions from './components/sections/home/offer/offer.js';
+	// import offerActions from './components/sections/home/offer/offer.js';
+
 	import transportGeographyMapActions from './components/sections/home/transport-geography/transport-geography.js';
 	// import mapActions from './components/partials/site-footer/map.js';
 
@@ -110,9 +119,9 @@ domready(function () {
   };
 
 	// advanced resize triger for viewportUnitsBuggyfill
-	$(window).on('resize orientationchange', function () {
+	$(window).on('resize orientationchange', _.debounce(function () {
 		viewportUnitsBuggyfill.refresh();
-	});
+	}, 250));
 })
 
   // var siteGalleryInit = siteGallery();

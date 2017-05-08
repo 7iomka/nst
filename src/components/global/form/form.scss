@@ -34,6 +34,7 @@
     .form-control {
       &-success {
         background-image: url('../images/icons/form/form-control-success.png');
+        font-weight: 500;
       }
       &-danger {
         background-image: none;
@@ -55,7 +56,8 @@
       text-transform: uppercase;
       font-weight: bold;
       border-radius: em-rel(4, 1.9);
-      width: 100%;
+      margin: auto;
+      display: block;
     }
   }
 

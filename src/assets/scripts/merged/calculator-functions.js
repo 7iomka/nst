@@ -1175,153 +1175,7 @@ function sendOrder(){
     var sendTransitionTime = 400;
 
 
-    // var inn = $("#zakaz_customer-inn").val();
-    var cnt = $('#cnt').val();
 
-    //вид стекла
-    var material = $("#block1 input[name='radio-b1']:checked").attr('data-name-id');
-    //подтип стекла
-    var material_type = $("#block2 input[name='radio-b2']:checked").attr('data-material-id');
-
-    //толщина стекла
-    var material_depth = $("#block3 input[name='radio-b3']:checked").attr('data-depth');
-    if (!material_depth) {
-      return (false);
-    }
-
-    // вариации по цвету (если есть)
-
-    var $colorTypeSelected = $('.gallery-content__types').find('input[name="radio-m-type"]:checked');
-    var color_type = false;
-    if($colorTypeSelected.length) {
-      color_type = $colorTypeSelected.data('type');
-    }
-
-    //форма и размеры
-    //обработка
-    var form_id = $("#block4 input[name='radio-b4']:checked").attr('id');
-    //alert(form_id);
-    var form = "";
-    var h = 0;
-    var w = 0;
-    var d = 0;
-    switch (form_id) {
-      case 'radio-b4-1': //прямоуг
-        form = 'square';
-        w = parseInt($('#form1_w_s').val());
-        h = parseInt($('#form1_h_s').val());
-        break;
-      case 'radio-b4-2': //круг
-        form = 'round';
-        d = parseInt($('#form2_diametr').val());
-        break;
-      case 'radio-b4-3': //другое
-        form = 'other';
-        w = parseInt($('#form3_w_s').val());
-        h = parseInt($('#form3_h_s').val());
-        break;
-      default:
-        return (false);
-    }
-    if (d == 0 && (h == 0 && w == 0)) {
-      return (false);
-    }
-    if (form == 'square' || form == 'other') {
-      if (!w || !h || w > MAX_W || h > MAX_W) {
-        //jAlert('Максимально возможная ширина ' + MAX_W, 'Ошибка!');
-        return (false);
-      }
-    }
-
-    if (form == 'round') {
-      if (!d || d > MAX_H) {
-        //jAlert('Максимально возможный диаметр ' + MAX_H, 'Ошибка!');
-        return (false);
-      }
-    }
-
-    //обработка
-    var polirov = parseInt($("#block5 input[name='radio-b5']:checked").attr('data-id'));
-    if (!polirov) {
-      polirov = 0;
-    }
-
-    if (polirov == 0 && $('#radio-b5-facet').is(':checked')) {
-      //  polirov = $('#b5-select :selected').attr('data-id');
-      polirov = $('input[name=b5-select]:checked').attr('data-id');
-    }
-
-    //--дополнительно
-    //закалка
-    var harding = 0;
-    if ($('#checkbox-b6-1').is(':checked')) {
-      harding = 1;
-    }
-    //отверстия
-    var otverst = 0;
-    var cnt_otverst = 0;
-    if ($('#checkbox-b6-2').is(':checked')) {
-      otverst = 1;
-      cnt_otverst = $('#text-b6-1').val();
-      if (!cnt_otverst) {
-        //jAlert('Не указано количество отверстий!', 'Ошибка!');
-        //return(false);
-      }
-    }
-
-    //вырезы
-    var vyrez = 0;
-    var cnt_vyrez = 0;
-    if ($('#checkbox-b6-3').is(':checked')) {
-      vyrez = 1;
-      cnt_vyrez = $('#text-b6-2').val();
-      if (!cnt_vyrez) {
-        //jAlert('Не указано количество вырезов!', 'Ошибка!');
-        //return(false);
-      }
-    }
-    //скругление
-    var rounding = 0;
-    var cnt_rounding = 0;
-    if ($('#checkbox-b6-4').is(':checked')) {
-      rounding = 1;
-      cnt_rounding = $('#text-b6-3').val();
-      if (!cnt_rounding) {
-        //jAlert('Не указано количество скругляемых углов!', 'Ошибка!');
-        //return(false);
-      }
-    }
-    //пленка
-    var safety = 0;
-    if ($('#checkbox-b6-5').is(':checked')) {
-      safety = 1;
-    }
-
-    //бронепленка
-    var bron = 0;
-    if ($('#checkbox-b6-6').is(':checked')) {
-      bron = 1;
-    }
-
-    //доставка ?
-    var dostavka = parseInt($("#block7 input[name='radio-b7']:checked").attr('data-num'));
-    var dostavka_addr = "";
-    if (!dostavka) {
-      dostavka = 0;
-    }
-    switch (dostavka) {
-      case 1:
-        dostavka_addr = $('#text-b7-1').val();
-        break;
-      case 2:
-        dostavka_addr = $('#text-b7-2').val();
-        break;
-      default:
-        dostavka_addr = "";
-    }
-
-    //дата заказа
-    var date_zakaz = $('#date_value').val();
 
     //alert(material_depth);
     var err = true;
@@ -1342,41 +1196,10 @@ function sendOrder(){
         task: "action-order",
         user_name: name,
         user_phone: phone,
-        user_email: email,
-        user_comments: comments,
-        //  inn_user: inn,
-        id_material: material,
-        id_material_type: material_type,
-        color_type: color_type,
-        depth: material_depth,
-        height: h,
-        width: w,
-        diametr: d,
-        form: form,
-        polirov: polirov,
-        harding: harding,
-        otverst: otverst,
-        cnt_otverst: cnt_otverst,
-        vyrez: vyrez,
-        cnt_vyrez: cnt_vyrez,
-        rounding: rounding,
-        cnt_rounding: cnt_rounding,
-        safety: safety,
-        bron: bron,
-        dostavka: dostavka,
-        dostavka_addr: dostavka_addr,
-        date_zakaz: date_zakaz,
-        cnt: cnt
+
       },
       timeout: 30000,
       beforeSend: function() {
-        //$("#resultCalc").text('Расчет...');
-        //$('#button_order').hide('slow');
-        //  $('#button_order').attr('disabled',true);
-        //  $('#button_order').attr('value','Идет отправка...');
-        // alert('идет отправка');
-
-
 
         // Получаем высоту первоначального контента (формы) и фиксируем её у родителя
         // для последующей анимации до высоты результирующего контейнера
@@ -1400,18 +1223,6 @@ function sendOrder(){
     })
     .done(function(data) {
       err = false;
-      //alert(data.itog_sum);
-      //  if(data.is_err == 0){
-      //   location.href = "/thankyou.html?id_zakaz=" + data.id_zakaz;
-      //  }
-      //  else{
-      //   if(!data.err){ data.err = "Ошибка при отправке письма";}
-      //   //jAlert(data.err,'Ошибка!');
-      //   alert(data.err);
-      //   //$('#button_order').show('slow');
-      //   $('#button_order').attr('disabled',false);
-      //   $('#button_order').attr('value','Отправить');
-      //  }
 
       if (data.is_err == 0) {
         // финальные действия

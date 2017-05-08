@@ -45,11 +45,13 @@
 // @import 'vendors/PhotoSwipe/micro-skin.scss';
 @import 'vendors/lazyYT/lazyYT.custom.scss';
 // @import 'vendors/chosen/chosen.custom.scss';
-// @import 'vendors/flatpickr/flatpickr.min.scss';
+@import 'vendors/flatpickr/flatpickr.min';
+@import 'vendors/flatpickr/flatpickr.custom.scss';
 @import 'vendors/ripple.js/ripple.scss';
-@import 'vendors/lightgallery/lightgallery.scss';
-@import 'vendors/jquery.qtip/jquery.qtip.scss';
-@import 'vendors/jquery.fancybox/jquery.fancybox.scss';
+// @import 'vendors/lightgallery/lightgallery.scss';
+// @import 'vendors/jquery.qtip/jquery.qtip.scss';
+// @import 'vendors/jquery.fancybox/jquery.fancybox.min';
+@import 'vendors/jquery.fancybox/jquery.fancybox-3.1.2.min';
 @import 'vendors/jquery.fancybox/jquery.fancybox.custom.scss';
 @import 'vendors/slick/slick.scss';
 @import 'vendors/slick/slick.custom-theme.scss';
@@ -65,4 +67,4 @@
 @import '../../components/templates/**/*.scss';
 
 // Themes
-@import 'themes/**/*.scss';
+// @import 'themes/**/*.scss';
