@@ -1,6 +1,6 @@
 
 .about-video {
-  $z-index__bg: 4;
+  $z-index__bg: 0;
   $z-index__header: 5;
   $z-index__relative-content: 5;
 
@@ -14,11 +14,11 @@
   &__bg {
      background: url('../images/sections/about-video/about-video__bg.png') 50% 0 no-repeat;
      position: absolute;
-     top: -334px;
+     top: -304px;
      left: 0;
      right: 0;
      height: 1428px;
-     z-index: 4;
+     z-index: $z-index__bg;
      @include media("<lg") {
       top: 0;
       height: 100%;

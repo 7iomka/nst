@@ -18,9 +18,7 @@ function assortimentSliderActions() {
   // 	// Your code goes here
   //   var $modalSource = $(instance.current.src);
   //   if ($modalSource.hasClass('assortiment-slider')) {
-  //     $modalSource.find('.slick-slider').each(function() {
-  //       $(this).slick('setPosition');
-  //     });
+  //
   //   }
   //
   // });
@@ -129,10 +127,14 @@ function assortimentSliderActions() {
       });
 
 
+
+
   });
 
 
-
+  $assortimentSlider.find('.slick-slider').each(function() {
+    $(this).slick('setPosition');
+  });
 
 
   /**

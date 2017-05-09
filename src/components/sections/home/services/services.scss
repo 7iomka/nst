@@ -10,11 +10,10 @@
       right: 0;
       background: url('../images/sections/services/services__header-part.png') 50% 100% no-repeat;
       background-size: contain;
-
       @include media("<sm"){
-        background-size: 680px;
-        height: 120px;
-        top: -120px;
+        height: 144px;
+        top: -144px;
+
       };
   }
 

@@ -12,8 +12,18 @@
     }
 
     &__relative-content {
-      padding: 2em 0 8em;
+      padding: 2em 0 3.7em;
       background: url('../images/sections/portfolio/portfolio__body-part.jpg') 50% 0 repeat-y;
+
+      @include media(">=sm"){
+        padding-bottom: 5em;
+      };
+      @include media(">=md"){
+        padding-bottom: 6em;
+      };
+      @include media(">=lg"){
+        padding-bottom: 8em;
+      };
     }
 
     // companies list
@@ -69,7 +79,7 @@
       align-items: center;
       margin: 0 auto 10px;
 
-      
+
     }
 
 

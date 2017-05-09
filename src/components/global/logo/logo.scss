@@ -11,10 +11,14 @@
 
   svg {
     fill: none;
+    @include media("<lg"){
+      height: 70px;
+    };
     @include media("<md"){
       display: block;
       margin: auto;
       height: 50px;
     };
+
   }
 }
