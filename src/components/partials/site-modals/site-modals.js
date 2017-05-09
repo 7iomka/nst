@@ -70,7 +70,7 @@ domready(function () {
         $form.validate({
             rules: rules,
             messages: messages,
-            // ignore:'input[type="date"],input[type="time"]',
+            ignore:'input[type="date"],input[type="time"]',
             highlight: function (element) {
                $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
                $(element).removeClass('form-control-success').addClass('form-control-danger');
