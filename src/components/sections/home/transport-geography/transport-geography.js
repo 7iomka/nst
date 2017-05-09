@@ -78,6 +78,10 @@ require('is-in-viewport/lib/isInViewport.js');
      * Yandex map ready callback
      */
     function YandexReadyHandlerSiteMap() {
+      if(typeof ymaps === 'undefined') {
+        setTimeout(YandexReadyHandlerSiteMap, 500);
+        return;
+      }
         if (!myMap) {
             myMap = new ymaps.Map("map", {
                 center: [
