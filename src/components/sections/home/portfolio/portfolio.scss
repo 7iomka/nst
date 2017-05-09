@@ -12,20 +12,35 @@
     }
 
     &__relative-content {
-      padding: 2em 0 3.7em;
+     padding: 2em 0;
       background: url('../images/sections/portfolio/portfolio__body-part.jpg') 50% 0 repeat-y;
 
       @include media(">=sm"){
-        padding-bottom: 5em;
+        padding-bottom: 3em;
       };
       @include media(">=md"){
-        padding-bottom: 6em;
+      padding-bottom: 3.5em;
       };
       @include media(">=lg"){
-        padding-bottom: 8em;
+        padding-bottom: 4.5em;
+      };
+      @include media(">=xl"){
+        padding-bottom: 5em;
+      };
+      @include media(">=1400px"){
+        padding-bottom: 6em;
+      };
+      @include media(">=1600px"){
+        padding-bottom: 7em;
       };
     }
 
+    
+
+    .portfolio__relative-content {
+
+        background: url(../images/sections/portfolio/portfolio__body-part.jpg) 50% 0 repeat-y;
+    }
     // companies list
     &__companies {
       // equal 20px margin
