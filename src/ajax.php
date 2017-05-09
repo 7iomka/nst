@@ -3,16 +3,16 @@
 session_start();
 error_reporting(0);
 // ini_set("display_errors",1);
-include_once "./inc/db_conf.php";
+// include_once "./inc/db_conf.php";
 //include_once "./inc/mysql.php";
-include_once "./inc/pdo.php";
-include_once "./inc/def.php";
+// include_once "./inc/pdo.php";
+// include_once "./inc/def.php";
 
 include_once "./lib/phpmailer/config.php";
 include_once "./lib/phpmailer/class.phpmailer.php";
 
 include_once "./inc/functions.php";
-include_once "./inc/functions_bitrix24.php";
+// include_once "./inc/functions_bitrix24.php";
 
 if (isset($_REQUEST['task'])) {
     $task = trim($_REQUEST['task']);
