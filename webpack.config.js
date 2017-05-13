@@ -211,7 +211,11 @@ let webpackConfig = {
       }),
       new UglifyJSPlugin({
         compress: !isDevelopment,
-        mangle: !isDevelopment,
+        // mangle: {
+        //   // Skip mangling these
+        //  except: ['$super', '$', 'exports', 'require']
+        // },
+        mangle: false,
         beautify: isDevelopment,
         sourceMap: isDevelopment,
 

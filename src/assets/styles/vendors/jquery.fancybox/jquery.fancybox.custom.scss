@@ -64,3 +64,33 @@ $fancybox-close-button__background: #fff;
      }
    }
 }
+
+// Custom preloader
+.fancybox-preloader {
+  background: none;
+}
+
+.fancybox-fx-slide.fancybox-slide--previous,
+.fancybox-fx-slide.fancybox-slide--next {
+  transition: 0.5s ease all;
+}
+
+.fancybox-fx-slide.fancybox-slide--previous {
+	/* start properties for upcoming slide if user navigates to previous gallery item */
+  // opacity: 0;
+  transform: translateX(-100%) scale(0.8);
+  transform: translateX(-100vw) scale(0.8);
+}
+
+.fancybox-fx-slide.fancybox-slide--next {
+	/* start properties for upcoming slide if user navigates to next gallery item */
+  transform: translateX(100%) scale(0.8);
+  transform: translateX(100vw) scale(0.8);
+  // opacity: 0;
+}
+
+.fancybox-fx-slide.fancybox-slide--current {
+	/* final properties */
+  transform: none;
+
+}

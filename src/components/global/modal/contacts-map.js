@@ -11,10 +11,13 @@
 
 
     $(document).on('afterShow.fb', function( e, instance, slide ) {
-      // var $modalSource = $(instance.current.src);
-        if(slide.src === '#contacts-map-modal') {
+      // if doesn't gallery
+      if(typeof slide.src !== 'string' && $(slide.src)) {
+        console.log($(slide.src).is('#contacts-map-modal'))
+        if($(slide.src).is('#contacts-map-modal')) {
           expandMap();
         }
+      }
     });
 
 

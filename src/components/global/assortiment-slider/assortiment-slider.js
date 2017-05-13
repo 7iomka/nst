@@ -163,28 +163,6 @@ function assortimentSliderActions() {
 
 
 
-
-      /** Вспомогательные функции **/
-
-
-      // функция обновления картинки $image источником source
-      function changeImage(source, $image) {
-        $image.attr('src', source);
-      }
-
-
-      // функция установки выбранного типа
-      function changeTypeData(newData, $target) {
-        $target.data('type', newData);
-      }
-      function resetTypeData($target) {
-        $target.data('type', '');
-      }
-
-
-
-
-
       // dynamic data with transitions
     $contextDesc.add($contextSchemes).addClass('short_hidden').afterTransition(function() {
           // change new data
