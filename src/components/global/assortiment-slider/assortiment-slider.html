@@ -1,4 +1,5 @@
 <div class="assortiment-slider {{ customClassList }}" id="car-park">
+  <!--  slider body-->
     <div class="assortiment-slider__body">
       <!--gallery-scene-->
       <div class="assortiment-slider__scene gallery-scene">
@@ -8,38 +9,22 @@
             <div class="gallery-scene__slide gallery-slide">
               <div class="gallery-slide__image">
                 {# svg изображение схемы находится в папке c каждым номером и транспортируются галмпом в папку откуда инклудятся#}
-                {% include slide.num + '.svg' %}
+                {% set slideImageSrc = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '.svg' | path %}
+                {% render "@img-responsive", {
+                  src: slideImageSrc,
+                  customClassList: 'gallery-slide__image-source'
+                } %}
+
               </div>
               <div class="gallery-slide__content hidden">
-                <div class="gallery-slide__content-schemes">
-                  {#  slide.schemes: 2 - будет вставлено: 1 видимая фотка и 1 скрытая #}
-                  {#  slide.schemes: если не указано - будет вставляться по умолчанию 1 #}
-                  {#  класс gallery-content__scheme - именно такой потому как будет вставляться и перемещаться содержимое #}
-                  <figure class="gallery-content__scheme img-responsive img-responsive--with-link img-responsive--with-overlay ">
-                    {% set schemeMainImage = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '-scheme.jpg' | path %}
-                    <a class="img-responsive__link" href="{{ schemeMainImage }}" data-for-fancybox="schemes-gallery-{{ slide.num }}">
-                      <img src="{{ schemeMainImage }}" />
-                    </a>
-                  </figure>
-                  {# если указан параметр schemes значит схем больше чем 1 и параметр указывает количество #}
-                  {% if slide.schemes %}
-                  <div style="display: none;">
-                    {% for item in range(2, slide.schemes+1) %}
-                      {# тут остальные фотки относящиеся к данной галлерее #}
-                        {% set schemeNextImage = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '-scheme' + (loop.index+1) + '.jpg' | path %}
-                      <a href="{{ schemeNextImage }}" data-for-fancybox="schemes-gallery-{{ slide.num }}"
-                         data-thumb="{{ schemeNextImage }}"></a>
-                    {% endfor %}
-                  </div>
-                  {% endif %}
-                </div>
+
                 <!--<div class="gallery-slide__content-title">{{ slide.title }}</div>-->
                 <div class="gallery-slide__content-desc">
                   <ul>
-                    <li>Длина: {{ slide.desc.l }} (м)</li>
-                    <li>Ширина: {{ slide.desc.w }} (м)</li>
-                    <li>Высота: {{ slide.desc.h }} (м)</li>
-                    <li>Макс. вес: {{ slide.desc.m }} (т)</li>
+                    <li>Длина: <nobr>{{ slide.desc.l }} (м)</nobr></li>
+                    <li>Ширина: <nobr>{{ slide.desc.w }} (м)</nobr></li>
+                    <li>Погрузочная высота: <nobr>{{ slide.desc.h }} (м)</nobr></li>
+                    <li>Грузоподъемность: <nobr>{{ slide.desc.m }} (т)</nobr></li>
                   </ul>
                 </div>
               {# тут вставляем все необходимые скрытые дивы с дата атрибутами #}
@@ -52,27 +37,7 @@
       <!--/gallery-scene-->
       <!--gallery-description async -->
       <div class="assortiment-slider__description gallery-content">
-        <div class="gallery-content__schemes">
-          <!--
-          Сюда должна попасть следующая разметка:
-          <div class="gallery-content__scheme">
-           //тут - первая ведующая кликапательная фотка ведующая на всплывающую галлерею схем
-              <a href="https://c1.staticflickr.com/1/357/31876784275_12286240d4_h.jpg" data-fancybox="schemes-gallery">
-                <img src="https://c1.staticflickr.com/1/357/31876784275_fbc9696913_m.jpg" />
-              </a>
-          </p>
 
-          <div style="display: none;">
-            // тут остальные фотки относящиеся к данной галлерее
-            <a href="https://farm3.staticflickr.com/2947/33594572585_b48eba935b_k_d.jpg" data-fancybox="schemes-gallery"
-               data-thumb="https://farm3.staticflickr.com/2947/33594572585_46ca00f3a5_m_d.jpg"></a>
-
-            <a href="https://farm3.staticflickr.com/2859/33395734202_522f9d8efd_k_d.jpg" data-fancybox="schemes-gallery"
-               data-thumb="https://farm3.staticflickr.com/2859/33395734202_15a81c4ef3_m_d.jpg"></a>
-
-          </div>
-          -->
-        </div>
         <!--<h2 class="gallery-content__title"></h2>-->
         <div class="gallery-content__body"></div>
       </div>

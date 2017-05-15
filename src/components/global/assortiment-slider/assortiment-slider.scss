@@ -3,6 +3,9 @@
   margin: 6em 0 10em;
   &__body {
       display: flex;
+      @include media(">=md"){
+        height: 240px;
+      };
       @include media("<md") {
         display: block;
       };
@@ -109,13 +112,12 @@
         max-width: 500px;
         margin: 5em auto 0;
       };
+
+      &-source {
+        width: 100%;
+      }
   }
-  svg {
-     width: 100%;
-     height: auto;
-     display: block;
-     margin: auto;
- }
+
 }
 
 
@@ -125,8 +127,10 @@
 
 // Gallery content
 .gallery-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  padding: 2em 1.5em 2em 2em;
+  padding: 2em 1.5em;
   overflow: hidden;
 
   @include media("<md") {
@@ -144,8 +148,8 @@
 
   &__body {
     font-size: 1.8em;
-    line-height: 1.11;
-    margin: em-rel(1.7, 1.8) 0;
+    font-weight: 500;
+    margin: auto 0;
     color: #2c2c2c;
 
     @include media("<md") {
@@ -155,6 +159,9 @@
       text-align: center;
       line-height: normal;
     };
+    li {
+      line-height: normal;
+    }
   }
 
   // each scheme
