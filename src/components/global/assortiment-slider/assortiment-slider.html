@@ -9,7 +9,7 @@
             <div class="gallery-scene__slide gallery-slide">
               <div class="gallery-slide__image">
                 {# svg изображение схемы находится в папке c каждым номером и транспортируются галмпом в папку откуда инклудятся#}
-                {% set slideImageSrc = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '.svg' | path %}
+                {% set slideImageSrc = '/assets/images/sections/assortiment/' + slide.num + '/' + slide.num + '.svg' %}
                 {% render "@img-responsive", {
                   src: slideImageSrc,
                   customClassList: 'gallery-slide__image-source'

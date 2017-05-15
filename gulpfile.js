@@ -180,15 +180,16 @@ function videos() {
 
 // Vectors
 function vectors() {
-  var mergeAssortimentFilesToVectorsFolder = gulp.src(paths.src + '/assets/images/sections/assortiment/**/*.svg')
-      .pipe(cache('vectors caching'))
-      .pipe(flatten())
-      .pipe(gulp.dest(paths.src + '/assets/vectors/'));
+  // var mergeAssortimentFilesToVectorsFolder = gulp.src(paths.src + '/assets/images/sections/assortiment/**/*.svg')
+  //     .pipe(cache('vectors caching'))
+  //     .pipe(flatten())
+  //     .pipe(gulp.dest(paths.src + '/assets/vectors/'));
 
   var mergeAllVectorsToDest = gulp.src(paths.src + '/assets/vectors/**/*')
     .pipe(gulp.dest(paths.dest + '/assets/vectors'));
 
-  return merge(mergeAssortimentFilesToVectorsFolder, mergeAllVectorsToDest);
+    // merge(mergeAssortimentFilesToVectorsFolder, mergeAllVectorsToDest);
+  return mergeAllVectorsToDest;
 };
 
 // Linting
