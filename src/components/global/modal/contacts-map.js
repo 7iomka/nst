@@ -11,6 +11,7 @@
 
 
     $(document).on('afterShow.fb', function( e, instance, slide ) {
+      // alert(slide.src);
       // if doesn't gallery
       if(typeof slide.src !== 'string' && $(slide.src)) {
         console.log($(slide.src).is('#contacts-map-modal'))
@@ -69,9 +70,9 @@
         if (!myMap) {
             myMap = new ymaps.Map("contacts-map", {
                 center: [
-                    59.820572, 30.360886
+                    60.603707, 96.629345
                 ],
-                zoom: 17,
+                zoom: 4,
                 controls: [],
                 type: "yandex#map"
             }, {suppressMapOpenBlock: true});
@@ -95,30 +96,30 @@
           //   //  });
           //    myMap.behaviors.disable('drag');
           //  }
-          var adressObject = new ymaps.GeoObject({
-              geometry: {
-                  type: "Point",
-                  coordinates: [59.820572, 30.360886]
-              },
-              properties: {
-                  balloonContent: "Россия, 199178, Санкт-Петербург, <br>Московское ш., д.25, корп 1, лит. А, офис 201",
-              }
-          }, {
-            preset: "islands#dotCircleIcon",
-            // iconColor: '#1faee9',
-            iconLayout: 'default#image',
-            iconImageHref: '/assets/images/icons/map-pin.png',
-            iconImageSize: [22, 26],
-            iconImageOffset: [-11, 0],
-            iconOffset: [0, -26],
-            // дополнительно смещаем балун, для открытия над иконкой.
-            balloonOffset: [0, -26],
-            hideIconOnBalloonOpen: false,
-            pane: 'balloon',
-          });
-
-            myMap.geoObjects.add(adressObject);
-            adressObject.balloon.open(myMap.getCenter());
+          // var adressObject = new ymaps.GeoObject({
+          //     geometry: {
+          //         type: "Point",
+          //         coordinates: [59.820572, 30.360886]
+          //     },
+          //     properties: {
+          //         balloonContent: "Россия, 199178, Санкт-Петербург, <br>Московское ш., д.25, корп 1, лит. А, офис 201",
+          //     }
+          // }, {
+          //   preset: "islands#dotCircleIcon",
+          //   // iconColor: '#1faee9',
+          //   iconLayout: 'default#image',
+          //   iconImageHref: '/assets/images/icons/map-pin.png',
+          //   iconImageSize: [22, 26],
+          //   iconImageOffset: [-11, 0],
+          //   iconOffset: [0, -26],
+          //   // дополнительно смещаем балун, для открытия над иконкой.
+          //   balloonOffset: [0, -26],
+          //   hideIconOnBalloonOpen: false,
+          //   pane: 'balloon',
+          // });
+          //
+          //   myMap.geoObjects.add(adressObject);
+          //   adressObject.balloon.open(myMap.getCenter());
 
 
 

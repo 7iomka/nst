@@ -5,14 +5,14 @@ function modalActions() {
   var modalDefaults = {
     autoFocus: false,
     clickOutside : 'close',
-    touch : {
+    touch :  {
       vertical: false
     },
     hash : false,
     // infobar: true,
     transitionEffect : "slide",
     // transitionDuration : 300, // replaced by duration in css
-    spinnerTpl : '<div class="preloader" style="display:block"></div>',
+    spinnerTpl : '<div class="preloader fancybox-preloader" style="display:block"></div>',
     lang : 'ru',
     i18n : {
       'ru' : {
@@ -42,7 +42,10 @@ function modalActions() {
     // prevent multiple
     $.fancybox.close();
 
-    $.fancybox.open( $modalTarget );
+    $.fancybox.open( $modalTarget , {
+        // setup only for modals (not gallery)
+        touch : false,
+    } );
   });
 
   // custom close button

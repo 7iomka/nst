@@ -220,7 +220,7 @@ function createComponent(args, done) {
     },
     {
       extension: '.html',
-      data: '<div></div>'
+      data: ''
     },
     {
       extension: '.js',
