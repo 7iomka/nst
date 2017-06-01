@@ -9,6 +9,40 @@ function _path(p) {
   return path.join(__dirname, p);
 }
 
+const curEnv = isDevelopment ? 'development' : 'production';
+const config = {
+  development: {
+    plugins: {
+      UglifyJSPlugin: {
+        compress: false,
+        // mangle: {
+        //   // Skip mangling these
+        //  except: ['$super', '$', 'exports', 'require']
+        // },
+        mangle: false,
+        beautify: true,
+        sourceMap: false,
+      }
+    }
+  },
+  production: {
+    plugins: {
+      UglifyJSPlugin: {
+        beautify: false,
+         mangle: {
+           screw_ie8: true,
+           keep_fnames: true
+         },
+         compress: {
+           screw_ie8: true
+         },
+         comments: false,
+         sourceMap: false,
+      }
+    }
+  }
+}
+
 let webpackConfig = {
     // click on the name of the option to get to the detailed documentation
     // click on the items with arrows to show more examples / advanced options
@@ -209,17 +243,9 @@ let webpackConfig = {
           "_": "lodash",
           "domready": "domready"
       }),
-      new UglifyJSPlugin({
-        compress: !isDevelopment,
-        // mangle: {
-        //   // Skip mangling these
-        //  except: ['$super', '$', 'exports', 'require']
-        // },
-        mangle: false,
-        beautify: isDevelopment,
-        sourceMap: isDevelopment,
-
-      })
+      new UglifyJSPlugin(
+        config[curEnv].plugins.UglifyJSPlugin
+      )
       //  new webpack.ResolverPlugin(new ComponentDirectoryPlugin(true)) // resolve require('components/demo') as components/demo/demo.js || index.js
     ],
     // list of additional plugins
