@@ -3,13 +3,36 @@
   <div class="about-video__bg"></div>
   <div class="about-video__relative-content">
     <div class="container">
-      <div class="about-video__content-wrapper">
-        <div class="about-video__corner about-video__corner--l-t" data-aos="zoom-right" data-aos-delay="700"></div>
-        <div class="about-video__corner about-video__corner--r-b" data-aos="zoom-left" data-aos-delay="700"></div>
-        <div class="about-video__content" data-aos="fade-in" >
-          {% render "@video-review", videoConfig %}
+      <div class="about-video__content-inner">
+        <div class="about-video__content-wrapper">
+          <div class="about-video__corner about-video__corner--l-t" data-aos="zoom-right" data-aos-delay="700"></div>
+          <div class="about-video__corner about-video__corner--r-b" data-aos="zoom-left" data-aos-delay="700"></div>
+          <div class="about-video__content" data-aos="fade-in">
+            <!-- Slider main container -->
+            <div class="about-video__slider swiper-container">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for video in videos %}
+                  <div class="swiper-slide about-video__slide">
+                    <a href="https://www.youtube.com/watch?v={{ video.id }}&autoplay=1&rel=0&controls=1&showinfo=0" class="video-link" data-fancybox>
+                      <img class="about-video__slide-video-image" src="{{ video.bg }}"/>
+                      <span class="ytp-button ytp-large-play-button"></span>
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+
+            </div>
+            <div class="swiper-nav-buttons">
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
         </div>
+
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
       </div>
-    </div>
-  </div>
 {% endblock %}

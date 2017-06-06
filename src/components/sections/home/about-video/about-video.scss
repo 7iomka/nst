@@ -1,4 +1,6 @@
-
+/*
+ * About video elements
+ */
 .about-video {
   $z-index__bg: 0;
   $z-index__header: 5;
@@ -31,6 +33,10 @@
     position: relative;
     z-index: $z-index__relative-content;
   }
+  &__slide-video-image {
+      width: 100%;
+  }
+
   .p-section__header {
       position: relative;
       z-index: $z-index__header;
@@ -42,7 +48,7 @@
 
   &__content-wrapper {
       position: relative;
-      overflow: hidden;
+      // overflow: hidden;
       margin: 3em 0;
       padding: 2em;
   }
@@ -99,4 +105,153 @@
 
 
 
+}
+
+.swiper-nav-buttons {
+
+    @include media(">=xl"){
+      margin: 0;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 0;
+      width: 110%;
+      left: -5%;
+      z-index: -1;
+    };
+    @include media(">=1440px"){
+      width: 120%;
+      left: -10%;
+    };
+
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    background-size: 2.4em 4.3em;
+    @include media("<xl"){
+      background-color: rgba(49, 49, 49, 0.69);
+      height: 6em;
+      margin-top: -3em;
+      width: 6em;
+      background-size: 2.4em 4.3em;
+    };
+  }
+  .swiper-button-prev {
+    transition: .35s ease all;
+    background-image: url('../images/icons/slider-prev.png');
+    &:hover {
+      background-image: url('../images/icons/slider-prev-hover.png');
+    }
+  }
+  .swiper-button-next {
+    transition: .35s ease all;
+    background-image: url('../images/icons/slider-next.png');
+    &:hover {
+      background-image: url('../images/icons/slider-next-hover.png');
+    }
+  }
+
+.swiper-pagination {
+    bottom: -2em;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    margin: 0 5px;
+    opacity: 0.4;
+    background: #b2b2b2;
+    opacity: 1;
+    &-active {
+        background: $base-color--primary;
+    }
+}
+
+
+
+
+
+/*
+ * Play button (YouTube style)
+ */
+.ytp-button:focus,
+.ytp-button {
+  border: none;
+  outline: 0;
+  color: inherit;
+  text-align: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  cursor: default;
+  line-height: inherit;
+
+/*  margin: 0; */
+  padding: 0;
+  background: transparent;
+}
+
+$yt_playbutton-bg: url('../images/YT_play_btn.png') 50% no-repeat;
+$yt_playbutton-width: 117px;
+$yt_playbutton-height: 84px;
+
+.ytp-large-play-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: $yt_playbutton-width;
+  height: $yt_playbutton-height;
+  @media screen and (max-width: 540px) {
+    $yt_playbutton-width: $yt_playbutton-width*0.7;
+    $yt_playbutton-height: $yt_playbutton-height*0.7;
+    width: $yt_playbutton-width;
+    height: $yt_playbutton-height;
+    margin-left: -($yt_playbutton-width/2);
+    margin-top: -($yt_playbutton-height/2);
+  }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    $yt_playbutton-width: $yt_playbutton-width*0.7;
+    $yt_playbutton-height: $yt_playbutton-height*0.7;
+    width: $yt_playbutton-width;
+    height: $yt_playbutton-height;
+    margin-left: -($yt_playbutton-width/2);
+    margin-top: -($yt_playbutton-height/2);
+  }
+
+  margin-left: -($yt_playbutton-width/2);
+  margin-top: -($yt_playbutton-height/2);
+  transition: opacity .25s cubic-bezier(0,0,0.2,1);
+
+  background: $yt_playbutton-bg;
+  background-size: contain;
+  animation: pulse 2s linear infinite;
+  max-width: 100%;
+}
+
+.ytp-button:not([aria-disabled=true]):not([disabled]):not([aria-hidden=true]) {
+  cursor: pointer;
+}
+@-webkit-keyframes pulse {
+    0%,100% {
+        -webkit-transform: scale(.8);
+        transform: scale(.8);
+        filter: alpha(opacity=85);
+        opacity: .85
+    }
+
+    10% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        filter: alpha(opacity=1);
+        opacity: 1
+    }
+
+    20% {
+        -webkit-transform: scale(.9);
+        transform: scale(.9);
+        filter: alpha(opacity=1);
+        opacity: 1
+    }
 }

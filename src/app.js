@@ -38,7 +38,8 @@ import deferImages from "utils/defer-images.js";
 	// init modal-links && fancybox set-up
 	import modalActions from './components/global/modal/modal.js';
 	// yutube preload
-	import videoReview from './components/common/video-review/video-review.js';
+	// import videoReview from './components/common/video-review/video-review.js';
+	import videoActions from './components/sections/home/about-video/about-video.js';
 	// init scroll-links to target
 	// import scrollLinks from './components/global/scroll-link/scroll-link.js';
 
@@ -99,7 +100,7 @@ domready(function () {
 		viewportUnitsBuggyfill: vubInstance,
 		deferImages: deferImages.init(),
 		// headerMenu: headerMenu.init(),
-		videoReview: videoReview.init(),
+		videoActions: videoActions.init(),
 		// scrollLinks: scrollLinks.init(),
 		// gallery: gallery.init(),
 		transportGeographyMapActions: transportGeographyMapActions.init(),

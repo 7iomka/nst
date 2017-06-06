@@ -3,6 +3,8 @@ context:
   sectionClassList: about-video
   titleConfig:
     title: Посмотрите видео о компании
-  videoConfig:
-    video:
-      youtube: ufLLwRVEP_g
+  videos:
+  - id: ufLLwRVEP_g
+    bg: '/assets/images/sections/about-video/about-video__video-thumbnail.jpg'
+  - id: ufLLwRVEP_g
+    bg: '/assets/images/sections/about-video/about-video__video-thumbnail.jpg'
