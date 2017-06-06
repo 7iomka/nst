@@ -7,9 +7,9 @@ $__smtp = array(
     "port" => 465,                    //порт (по-умолчанию - 25)
     "secure" => "ssl",
     "from_name" => "NST",
-	"username" => "xzyacheng-sender",//имя пользователя на сервере
-    "password" => "xzyacheng-sender2015",//пароль
-    "addreply" => "7iomka@gmail.com",//ваш е-mail
+	"username" => "sender-nst-spb",//имя пользователя на сервере
+    "password" => "sender-nst-spb2016",//пароль
+    "addreply" => "sender-nst-spb@yandex.ru",//ваш е-mail
     "replyto" => "7iomka@gmail.com"      //e-mail ответа
  );
 

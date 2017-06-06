@@ -1,7 +1,8 @@
 <?php
 
-session_start();
+/*session_start();*/
 error_reporting(0);
+/*ini_set("display_errors",1);*/
 // ini_set("display_errors",1);
 // include_once "./inc/db_conf.php";
 //include_once "./inc/mysql.php";
@@ -21,10 +22,12 @@ if (isset($_REQUEST['task'])) {
 } else {
     $task = 'main';
 }
+/*echo $task;*/
 $admin_emails = Array("7iomka@gmail.com");
+$time = time();
 
-// echo print_r($_REQUEST);
-// die;
+/*echo print_r($_REQUEST);
+ die;*/
 switch ($task) {
 
 
@@ -50,7 +53,7 @@ switch ($task) {
                       <title>Сообщение с сайта NST</title>
                     </head>
                   <body>";
-        $mes .= "<table>";
+        $mes .= "<table border=1 cellspacing=0 cellpadding=8>";
         $mes .= "<tr><th colspan='2'>Данные заявки</th></tr>";
         $mes .= "<tr><td>Дата:</td><td>" . date('Y-m-d H:i', $time) . "</td></tr>";
         $mes .= "<tr><th colspan='2'><strong>Контактные данные клиента". ($user_comments ? " и комментарии" : "") . "</strong></th></tr>";
@@ -89,20 +92,17 @@ switch ($task) {
           $mes .= "<tr><td>Габариты:</td><td>" . $user_dimensions . "</td></tr>";
         }
 
-        // Отправка
-        foreach ($admin_emails As $email) {
+       /* notify_admin('7iomka@gmail.com', $subj, $mes);*/
+       // Отправка
+        foreach ($admin_emails as $email) {
             $email = trim($email);
-            notify_admin($email, $subj, $mes, $attach);
+            notify_admin($email, $subj, $mes);
         }
 
         $data['is_err']   = 0;
         echo json_encode($data);
         exit;
         break;
-
-
-
-
 
 }
 exit;
