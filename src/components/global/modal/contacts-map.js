@@ -70,7 +70,7 @@
         if (!myMap) {
             myMap = new ymaps.Map("contacts-map", {
                 center: [
-                  59.821410, 30.360259
+                  59.821248, 30.360152
                 ],
                 zoom: 17,
                 controls: [],
@@ -99,7 +99,7 @@
           var adressObject = new ymaps.GeoObject({
               geometry: {
                   type: "Point",
-                  coordinates: [59.821410, 30.360259]
+                  coordinates: [59.821248, 30.360152]
               },
               properties: {
                   balloonContent: "196158, г. Санкт-Петербург, Московское шоссе, д. 25, к.1, лит. А, оф. 201",
