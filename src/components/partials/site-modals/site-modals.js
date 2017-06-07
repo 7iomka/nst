@@ -354,6 +354,7 @@ domready(function () {
             user_phone: phone,
             user_comments: comments,
             user_from: from,
+            user_to: to,
             user_date_start: dateStart,
             user_date_finish: dateFinish,
             user_weight: weight,
