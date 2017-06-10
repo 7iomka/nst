@@ -5,7 +5,7 @@ context:
     title: Контакты
   gallery:
   - src: /assets/images/sections/contacts/1.png
-  - src: /assets/images/sections/contacts/1.png
-  - src: /assets/images/sections/contacts/1.png
+  - src: /assets/images/sections/contacts/2.png
+  - src: /assets/images/sections/contacts/3.png
   adress: 'Офис: <span>196158, г. Санкт-Петербург, Московское шоссе, д. 25, к.1, лит. А, оф. 201</span>'
   openMapText: (Показать на карте)
