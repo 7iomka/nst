@@ -206,7 +206,7 @@ function lintstyles() {
 // Styles
 function styles() {
   var sassStyles =  gulp.src(paths.src + '/assets/styles/app.scss')
-    .pipe(sourcemaps.init())
+    .pipe(gulpIf(isDevelopment,sourcemaps.init()))
     .pipe(sassGlob({
               ignorePaths: [
                   '**/site-header.scss'
@@ -228,7 +228,7 @@ function styles() {
       ])
      )
     .pipe(gulpIf(!isDevelopment, csso()))
-    .pipe(sourcemaps.write('./'))
+    .pipe(gulpIf(isDevelopment, sourcemaps.write('./')))
     .pipe(gulp.dest(paths.dest + '/assets/styles'))
     .pipe(browserSync.stream({ match: '**/*.css' }));
 
